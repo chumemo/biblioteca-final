@@ -1042,6 +1042,10 @@ Nuevos revisión final
 }
 
 .table-header-compendio{
+  /* background-color: #fff !important; */
+}
+
+.table-header-compendio thead tr{
 
   /* --bs-table-color: #000;
   --bs-table-bg: #f5e3e7;
@@ -1059,8 +1063,22 @@ Nuevos revisión final
   color: #fff !important;
 } 
 
-.table-header-compendio th{
+.table-header-compendio thead tr th{
   color: #fff !important;
+}
+
+.table-header-compendio tbody td{  
+  height: 100%;
+}
+
+.btn-table-ver-compendios{
+  width: 25px;
+  height: 25px;;
+}
+
+.full-height{
+  background-color: red !important;
+  min-height: 100%;;
 }
 
 @media (min-width: 576px) {
