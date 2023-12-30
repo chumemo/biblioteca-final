@@ -31,6 +31,8 @@
                         <h5 class="card-title gothamR text-cream ">FOLLETOS</h5>
                     </div>
 
+                    <p class="card-text text-primary">Material didáctico e infografías en materia de procedimiento especial sancionador.</p>
+
                 </div>
             </a>
         </div>
@@ -47,6 +49,7 @@
                             width="50px">
                         <h5 class="card-title gothamR text-primary">FORMATOS</h5>
                     </div>
+                    <p class="card-text text-primary">Documentos digitales en versión editable que pueden ser descargados por las y los usuarios del sitio con el propósito de agilizar su elaboración.</p>
                 </div>
             </a>
         </div>
@@ -63,6 +66,7 @@
                             width="50px">
                         <h5 class="card-title gothamR text-cream">CATALOGOS</h5>
                     </div>
+                    <p class="card-text text-primary">Conjunto de infracciones aplicables en el procedimiento especial sancionador</p>
                 </div>
             </a>
         </div>
@@ -78,6 +82,7 @@
                             width="50px">
                         <h5 class="card-title gothamR text-primary">DOCUMENTOS</h5>
                     </div>
+                    <p class="card-text text-primary">Información relacionada con procedimiento especial sancionador aplicable en el estado de Guanajuato de autoridades electorales como SCJN, INE, IEEG, TEPJF Y TEEG.</p>
                 </div>
             </a>
         </div>
@@ -92,12 +97,14 @@
                             width="50px">
                         <h5 class="card-title gothamR text-cream">COMPENDIOS</h5>
                     </div>
+                    
+                    <p class="card-text text-primary">Información relacionada con procedimiento especial sancionador aplicable en el estado de Guanajuato de autoridades electorales como SCJN, INE, IEEG, TEPJF Y TEEG.</p>
+
                 </div>
             </a>
         </div>
-
+        
     </div>
-
     {{-- Carousell --}}
     @if (count($capsulas) == 0)
         {{-- No hay capsulas --}}
