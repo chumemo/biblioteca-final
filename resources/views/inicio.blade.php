@@ -64,7 +64,7 @@
                     <div class="d-flex align-items-end ">
                         <img class="" src="{{ asset('assets/img/ICONO-Catalogo.png') }}" alt="icono manuales"
                             width="50px">
-                        <h5 class="card-title gothamR text-cream">CATALOGOS</h5>
+                        <h5 class="card-title gothamR text-cream">CATÁLOGOS</h5>
                     </div>
                     <p class="card-text text-primary">Conjunto de infracciones aplicables en el procedimiento especial sancionador</p>
                 </div>
@@ -109,6 +109,10 @@
     @if (count($capsulas) == 0)
         {{-- No hay capsulas --}}
     @else
+    <br>
+    <div class="w-100 bg-admin-section-title p-2">
+        CÁPSULAS INFORMATIVAS
+    </div> 
         <div id="carousel" class="carousel slide carousel-fade px-lg-5 my-2 d-flex align-items-center ">
             <div class="carousel-inner mx-lg-5">
 

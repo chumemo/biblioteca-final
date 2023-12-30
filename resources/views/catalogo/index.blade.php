@@ -1,22 +1,22 @@
 @extends('layouts.base')
 @section('content')
-@section('titulo_seccion', 'CATALOGOS')
+@section('titulo_seccion', 'CATÁLOGOS')
 
     <div class="container mt-4">
 
         <div class="row">
 
             @forelse ( $catalogos as $catalogo)
-            <div class="col-lg-3 col-md-6 mb-4 cardEffect">
+            <div class="col-lg-2 col-md-4 mb-2 cardEffect">
                 <div class="card align-items-center border-0" style="width: 100%;">
-                    <p class="text-secondary">{{ $catalogo->titulo }}</p>
-                    <img src="{{ $catalogo->urlImagen }}" class="" alt="catalogo img" width="100px" height="150px">
+                    <!-- <p class="text-secondary">{{ $catalogo->titulo }}</p> -->
+                    <img src="{{ $catalogo->urlImagen }}" class="img-catalogo" alt="catalogo img">
                     <ul class="list-group list-group-flush align-items-center gothamB">
-                        <li class="list-group-item">
+                        <li class="list-group-item ">
                             <a href="{{ $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
                                 
                                     <button type="button" id="btnDescargar"
-                                    class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3">DESCARGAR</button>
+                                    class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3 ">DESCARGAR</button>
                                 
                             </a>
                         </li>

@@ -3,7 +3,7 @@
 @section('title', 'Catalogos')
 
 @section('content_header')
-<h2 class="text-secondary my-2 px-2" style="background-color: #fcd5c9">Catalogos</h2>
+<h2 class="text-secondary my-2 px-2" style="background-color: #fcd5c9">Catálogos</h2>
     
 @stop
 
@@ -14,7 +14,7 @@
 
             <div class="card card-default">
                 <div class="card-header bg-admin-card-title ">
-                    <span class="card-title font-gothamBold">NUEVO CATALOGO</span>
+                    <span class="card-title font-gothamBold">NUEVO CATÁLOGO</span>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('catalogos.store') }}"  role="form" enctype="multipart/form-data">

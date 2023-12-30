@@ -3,7 +3,7 @@
 @section('title', 'Catalogos')
 
 @section('content_header')
-<h3 class="text-secondary px-2" style="background-color: #fcd5c9">CATALOGOS</h3>
+<h3 class="text-secondary px-2" style="background-color: #fcd5c9">CATÁLOGOS</h3>
 
 @stop
 @section('content')
@@ -11,7 +11,7 @@
     <div class="w-100 bg-admin-card-title p-1">
         <a href="{{ route('catalogos.create') }}" class="text-white text-decoration-none font-gothamBold "> 
             +
-            NUEVO CATALOGO
+            NUEVO CATÁLOGO
         </a>
     </div>
     <hr>

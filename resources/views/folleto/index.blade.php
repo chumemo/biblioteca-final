@@ -8,12 +8,12 @@
         <div class="row">
 
             @forelse ($folletos as $folleto)
-                <div class="col-lg-3 col-md-6 mb-4 cardEffect">
+                <div class="col-lg-2 col-md-4 mb-2 cardEffect">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#miModal" id="link">
                         <span hidden>{{ $folleto->id }}</span>
                         <div class="card align-items-center border-0 " style="width: 100%;">
-                            <img src="{{ asset($folleto->urlImagenThumb); }}" class="" alt="Manual img" width="200px" height="200px">
-                            <h6 class="limitedText text-secondary mt-2"> {{ $folleto->titulo }}</h6>
+                            <img src="{{ asset($folleto->urlImagenThumb); }}" class="img-folleto" alt="Manual img" width="200px" height="200px">
+                            <h6 class="limitedText text-secondary mt-2 text-center"> {{ $folleto->titulo }}</h6>
                         </div>
                     </a>
                 </div>

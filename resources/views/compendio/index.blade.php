@@ -58,7 +58,7 @@
                     {{ $compendios->links('pagination::simple-bootstrap-5') }}
                     <table class="table">
                         <thead>
-                            <tr class="table-warning">
+                            <tr class="table-warning table-header-compendio">
                                 <th>CRITERIO</th>
                                 <th>AÑO</th>
 
@@ -77,7 +77,7 @@
                                     <td>{!! $compendio->descripcion !!}</td>
                                     <td
                                         class="d-flex justify-content-around"@if ($compendio->urlDocumento == null || '') hidden @endif>
-                                        <a href="{{ route('compendio.show', $compendio) }}">
+                                        <a  href="{{ route('compendio.show', $compendio) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                 fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                                 <path
@@ -86,7 +86,7 @@
                                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                             </svg>
                                         </a>
-                                        <a href="{{ '../' . $compendio->urlDocumento }}" data-id="{{ $compendio->id }}"
+                                        <a class="ml-3" href="{{ '../' . $compendio->urlDocumento }}" data-id="{{ $compendio->id }}"
                                             data-tipo="compendio" download>
                                             <svg id="btnDescargar" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                 fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
