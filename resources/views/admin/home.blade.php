@@ -22,11 +22,11 @@
         <div class="row">
             <div class="col-md-12 d-flex flex-row justify-content-around">
                 <div class="col-4 border-dark m-2">
-                    <h6>Descargas del día</h6>
+                    <h6>Descargas por tipo</h6>
                     <canvas width="500px" height="400px" id="descargasCanvas"></canvas>
                 </div>
                 <div class="col-4 border-dark m-2">
-                    <h6>Lecturas del día</h6>
+                    <h6>Lecturas por tipo</h6>
                     <canvas width="500px" height="400px" id="lecturasCanvas"></canvas>
                 </div>
 
@@ -35,11 +35,11 @@
         <div class="row">
             <div class="col-md-12 d-flex flex-row justify-content-around">
                 <div class="col-4 border-dark m-2">
-                    <h6>Descargas de usuarios por dia</h6>
+                    <h6>Descargas de usuarios</h6>
                     <canvas width="500px" height="400px" id="descargasUsuarioCanvas"></canvas>
                 </div>
                 <div class="col-4 border-dark m-2">
-                    <h6>Lecturas de usuarios por dia</h6>
+                    <h6>Lecturas de usuarios</h6>
                     <canvas width="500px" height="400px" id="lecturasUsuarioCanvas"></canvas>
                 </div>
 
