@@ -3,32 +3,71 @@
 @section('content')
     <div class="row col-lg-12 justify-content-center align-content-center">
 
+        <style>
+            .card {
+                position: relative;
+            }
+        
+            .card-img-overlay {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-start;
+                height: 100%;
+                padding: 1rem;
+                transition: transform 0.3s ease-in-out;
+                transform: translateY(0);
+            }
+        
+            .card:hover .card-img-overlay {
+                transform: translateY(-10%);
+            }
+        
+            .card-title {
+                opacity: 1;
+                transition: opacity 0.5s ease-in-out;
+            }
+        
+            .card-text {
+                opacity: 0;
+                display: none;
+                transition: opacity 0.5s ease-in-out;
+            }
+        
+            .card:hover .card-text {
+                display: block;
+                opacity: 1;
+            }
+        </style>
+        
+
+
         <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0" style="max-height: 300px; max-width: 350px">
-            <a href="{{ route('manual.index') }}">
-                <img src="{{ asset('assets/img/Mosaico-Manuales.png') }}" class="card-img img-fluid rounded-0 " alt="Manuales"
-                    style="max-width: 350px">
+            <a href="{{ route('manual.index') }}" class="card-link">
+                <img src="{{ asset('assets/img/Mosaico-Manuales.png') }}" class="card-img img-fluid rounded-0 " alt="Manuales" style="max-width: 350px">
                 <div class="card-img-overlay d-flex flex-column justify-content-end cardEffect">
-                    <div class="d-flex align-items-end ">
-                        <img class="" src="{{ asset('assets/img/ICONO-Manuales.png') }}" alt="icono manuales"
-                            width="50px">
-                        <h5 class="card-title text-primary">MANUALES</h5>
+                    <div class="d-flex align-items-end">
+                        <img class="mr-2" src="{{ asset('assets/img/ICONO-Manuales.png') }}" alt="icono manuales" width="50px">
+                        <h5 class="card-title gothamR text-primary">
+                            MANUALES
+                        </h5>
                     </div>
-                    <p class="card-text text-primary">Manuales de operación de apoyo para la integración de un procedimiento
-                        especial sancionador y las notificaciones en el instituto.</p>
+                    <p class="card-text text-primary">Manuales de operación de apoyo para la integración de un procedimiento especial sancionador y las notificaciones en el instituto.</p>
                 </div>
             </a>
         </div>
+        
 
 
-        <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0 " style="max-height: 300px; max-width: 350px">
+        <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0" style="max-height: 300px; max-width: 350px">
             <a href="{{ route('folleto.index') }}">
-                <img src="{{ asset('assets/img/Mosaico-Folletos.png') }}" class="card-img img-fluid rounded-0 "
-                    alt="Manuales" style="max-width: 350px">
+                <img src="{{ asset('assets/img/Mosaico-Folletos.png') }}" class="card-img img-fluid rounded-0 " alt="Manuales" style="max-width: 350px">
                 <div class="card-img-overlay d-flex flex-column justify-content-end cardEffect">
-                    <div class="d-flex align-items-end ">
-                        <img class="" src="{{ asset('assets/img/ICONO-Folletos.png') }}" alt="icono manuales"
-                            width="50px">
-                        <h5 class="card-title gothamR text-cream ">FOLLETOS</h5>
+                    <div class="d-flex align-items-end">
+                        <img class="mr-2" src="{{ asset('assets/img/ICONO-Folletos.png') }}" alt="icono Folletos" width="50px">
+                        <h5 class="card-title  gothamR text-primary">
+                            FOLLETOS
+                        </h5>
                     </div>
 
                     <p class="card-text text-primary">Material didáctico e infografías en materia de procedimiento especial sancionador.</p>
@@ -39,7 +78,7 @@
 
 
 
-        <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0 " style="max-height: 300px; max-width: 350px">
+        {{-- <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0 " style="max-height: 300px; max-width: 350px">
             <a href="{{ route('formato.index') }}">
                 <img src="{{ asset('assets/img/Mosaico-Formatos.png') }}" class="card-img img-fluid rounded-0 "
                     alt="Manuales" style="max-width: 350px">
@@ -48,6 +87,21 @@
                         <img class="" src="{{ asset('assets/img/ICONO-Formatos.png') }}" alt="icono manuales"
                             width="50px">
                         <h5 class="card-title gothamR text-primary">FORMATOS</h5>
+                    </div>
+                    <p class="card-text text-primary">Documentos digitales en versión editable que pueden ser descargados por las y los usuarios del sitio con el propósito de agilizar su elaboración.</p>
+                </div>
+            </a>
+        </div> --}}
+
+        <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0" style="max-height: 300px; max-width: 350px">
+            <a href="{{ route('folleto.index') }}">
+                <img src="{{ asset('assets/img/Mosaico-Formatos.png') }}" class="card-img img-fluid rounded-0 " alt="Formatos" style="max-width: 350px">
+                <div class="card-img-overlay d-flex flex-column justify-content-end cardEffect">
+                    <div class="d-flex align-items-end">
+                        <img class="mr-2" src="{{ asset('assets/img/ICONO-Formatos.png') }}" alt="icono formatos" width="50px">
+                        <h5 class="card-title  gothamR text-primary">
+                            FORMATOS
+                        </h5>
                     </div>
                     <p class="card-text text-primary">Documentos digitales en versión editable que pueden ser descargados por las y los usuarios del sitio con el propósito de agilizar su elaboración.</p>
                 </div>
@@ -138,7 +192,6 @@
                             </div>
                         </div>
                     </div>
-                
                 @endforeach
 
             </div>
@@ -167,21 +220,20 @@
                     iframe.src = '';
                     iframe.src = temp;
                 });
-                
-            });
-            
 
+            });
         </script>
 
-    </div>
-    
-    <div class="container d-flex flex-column  align-items-center mb-6">
-        <a href="{{ route('capsula.index') }}">
-            <button type="button" id="irACapsulas" class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3">
-                VER MÁS
-            </button>
-        </a>
-    </div>
+        </div>
+
+        <div class="container d-flex flex-column  align-items-center mb-6">
+            <a href="{{ route('capsula.index') }}">
+                <button type="button" id="irACapsulas"
+                    class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3">
+                    VER MÁS
+                </button>
+            </a>
+        </div>
     @endif
 
 

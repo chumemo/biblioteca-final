@@ -10,6 +10,10 @@
     color: white;
 }
 
+.mt-main {
+    margin-top: 90px;
+}
+
 
 @font-face {
     font-family: 'gotham';
@@ -85,9 +89,14 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 2px solid transparent;
 }
 
+
 .navLink:hover {
     border-bottom: 2px solid #fffdff;
     transform: scale(1.05); 
+}
+
+.navLink > a {
+    font-size: 14px;
 }
 
 .limitedText {
