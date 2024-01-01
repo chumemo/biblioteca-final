@@ -10,7 +10,7 @@
 <section class="content container-fluid">
     <div class="row flex justify-content-center">
         <div class="col-md-10">
-            <h2 class="text-secondary my-2 px-2" style="background-color: #fcd5c9">Capsulas</h2>
+            <h2 class="text-secondary my-2 px-2" style="background-color: #fcd5c9">Cásulas</h2>
 
             <div class="card card-default">
                 <div class="card-header bg-admin-card-title ">

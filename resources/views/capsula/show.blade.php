@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-@section('titulo_seccion', 'CAPSULA INFORMATIVA')
+@section('titulo_seccion', 'CÁPSULA INFORMATIVA')
 
     <div class="container mt-4">
         

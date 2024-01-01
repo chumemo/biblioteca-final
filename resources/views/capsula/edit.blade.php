@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Capsulas')
+@section('title', 'Cápsulas')
 
 @section('content_header')
 
@@ -10,7 +10,7 @@
     <section class="content container-fluid">
         <div class="row flex justify-content-center">
             <div class="col-md-10">
-                <h2 class="text-secondary my-2 px-2" style="background-color: #fcd5c9">Capsulas</h2>
+                <h2 class="text-secondary my-2 px-2" style="background-color: #fcd5c9">Cápsulas</h2>
 
                 <div class="card card-default">
 
@@ -24,7 +24,7 @@
                                 <div class="box-body">
 
                                     <div class="form-group">
-                                        <label class="text-secondary">Titulo</label>
+                                        <label class="text-secondary">Título</label>
                                         <input type="text" name='titulo' class="form-control" placeholder="Titulo"
                                             required value="{{ $capsula->titulo }}" maxlength="254">
                                     </div>

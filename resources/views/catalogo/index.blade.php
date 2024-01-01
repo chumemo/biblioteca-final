@@ -8,11 +8,11 @@
 
             @forelse ( $catalogos as $catalogo)
             <div class="col-lg-2 col-md-4 mb-2 cardEffect">
-                <div class="card align-items-center border-0" style="width: 100%;">
+                <div class="card align-items-center border-0 bg-transparent" style="width: 100%;">
                     <!-- <p class="text-secondary">{{ $catalogo->titulo }}</p> -->
                     <img src="{{ $catalogo->urlImagen }}" class="img-catalogo" alt="catalogo img">
                     <ul class="list-group list-group-flush align-items-center gothamB">
-                        <li class="list-group-item ">
+                        <li class="list-group-item bg-transparent">
                             <a href="{{ $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
                                 
                                     <button type="button" id="btnDescargar"
@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         
-                        <li class="list-group-item pt-0">
+                        <li class="list-group-item  bg-transparent">
                             <a href="{{ route('catalogo.show',$catalogo)  }}">
                                 <button type="button" id="btnVerPDF"
                                     class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3">

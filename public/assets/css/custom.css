@@ -1073,12 +1073,18 @@ Nuevos revisión final
 
 .btn-table-ver-compendios{
   width: 25px;
-  height: 25px;;
+  height: 25px;
+  object-fit:fill;
 }
 
 .full-height{
   background-color: red !important;
   min-height: 100%;;
+}
+
+.bg-primary-modal {
+  --bs-bg-opacity: 0.5;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 @media (min-width: 576px) {

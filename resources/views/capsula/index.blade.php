@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-@section('titulo_seccion', 'CAPSULAS INFORMATIVAS')
+@section('titulo_seccion', 'CÁPSULAS INFORMATIVAS')
 
     <div class="container mt-4">
 
@@ -22,7 +22,7 @@
 
                 
                 @empty
-                <h4>NINGUN CAPSULA POR MOSTRAR</h4>
+                <h4>NINGUN CÁPSULA POR MOSTRAR</h4>
                 @endforelse
         </div>
         @section('pagination')
@@ -33,7 +33,7 @@
     
 
     <!-- Modal -->
-    <div class="modal fade " id="miModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal fade bg-primary-modal" id="miModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
             <div class="modal-content p-0 m-0">
                 <div class="modal-body p-0 m-0">
