@@ -15,7 +15,7 @@ class DocumentoController extends Controller
         $autoridades = Autoridad::all();
         $documentos = Documento::where('estado', '1')
         ->orderByDesc('fecha')
-        ->paginate(20);
+        ->paginate(6);
 
         if($request->has('autoridadId'))
         {
@@ -26,7 +26,7 @@ class DocumentoController extends Controller
 
     public function admin()
     {
-        $documentos = Documento::orderByDesc('created_at')->paginate(20);
+        $documentos = Documento::orderByDesc('created_at')->paginate(10);
         return view('documento.admin', compact('documentos'));
     }
 

@@ -16,14 +16,14 @@ class FolletoController extends Controller
     {
         $folletos= Folleto::where('estado', '1')
             ->orderByDesc('fecha')
-            ->paginate(20);
+            ->paginate(6);
         return view("folleto.index",compact("folletos"));
     }
 
     public function admin()
     {
         $folletos= Folleto::orderByDesc('created_at')
-            ->paginate(20);
+            ->paginate(10);
         return view("folleto.admin",compact("folletos"));
     }
 

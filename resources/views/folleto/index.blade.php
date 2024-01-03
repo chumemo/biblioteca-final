@@ -13,7 +13,7 @@
                         <span hidden>{{ $folleto->id }}</span>
                         <div class="card align-items-center border-0 bg-transparent" style="width: 100%;">
                             <img src="{{ asset($folleto->urlImagenThumb); }}" class="img-folleto" alt="Manual img" width="200px" height="200px">
-                            <h6 class="limitedText text-secondary mt-2 text-center"> {{ $folleto->titulo }}</h6>
+                            <h6 class=" text-secondary mt-2 text-center titulo-folleto"> {{ $folleto->titulo }}</h6>
                         </div>
                     </a>
                 </div>
@@ -31,14 +31,14 @@
     <!-- Modal -->
     <div class="modal fade bg-primary-modal" id="miModal" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
         <div class="modal-dialog ">
-            <div class="modal-content p-0 m-0">
-                <div class="modal-body p-0 m-0">
-
+        <h6 class="limitedText text-white mt-2 pt-1 mb-2 text-center"> {{ $folleto->titulo }}</h6>
+            <div class="modal-content p-0 m-0">            
+                <div class="modal-body p-0 m-0">                
                     <div id="carousel" class="carousel slide">
                         <div class="carousel-inner">
                             @forelse ($folletos as $folleto)
                                 {{-- <div class="carousel-item @if ($loop->first) active @endif"> --}}
-                                    <div class="carousel-item" id="{{ $folleto->id }}">
+                                    <div class="carousel-item" id="{{ $folleto->id }}">                                    
                                     <img src="{{ asset($folleto->urlImagen) }}" class="d-block" alt="folleto" height="640px">
                                 </div>
                                 

@@ -19,7 +19,11 @@ class UsuarioController extends Controller
     {
         $users = User::orderByDesc('created_at')
             ->paginate(20);
-        return view('user.admin', compact('users'));
+
+        $roles = Role::all();
+
+
+        return view('user.admin', compact('users'), compact('roles'));
     }
 
     /**

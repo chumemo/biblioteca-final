@@ -22,6 +22,7 @@
             <tr >
                 <th>ACCIONES</th>
                 <th>ID</th>
+                <th>ROL</th>                
                 <th>NOMBRE</th>
                 <th>EMAIL</th>
                 {{-- <th>ROL</th> --}}
@@ -43,6 +44,7 @@
                         </form>
                     </td>
                     <td>{{ $usuario->id }}</td>
+                    <td> {{ current(array_filter($roles->toArray(), fn($rol) => $rol['id'] == $usuario->rol))['name'] }} </td>
                     <td>{{ $usuario->name }}</td>
                     <td>{{ $usuario->email }}</td>
                     {{-- <td>{{ $usuario->rol }}</td> --}}

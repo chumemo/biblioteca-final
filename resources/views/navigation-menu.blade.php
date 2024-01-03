@@ -74,10 +74,45 @@
                     @method('POST')
                     @csrf
                     <div class="flex flex-row items-center text-center rounded-pill  overflow-hidden border-none mt-2 bg-white h-8 ">
-                        <input type="text" name="query" autocomplete="off"
+                        <input type="text" name="query" id="search-box" placeholder="Buscar por temas" autocomplete="off"
                         class="w-full h-full placeholder-gray-400 border-none" />
-                        <img id="buscarIcon" src="{{ asset('assets/img/Buscar.png') }}" alt="Logo usuario" class="h-8 border-none"/>
+                        <img id="buscarIcon" src="{{ asset('assets/img/Buscar.png') }}" alt="Logo usuario" class="h-8 border-none"/>                        
                     </div>
+
+                    <div class="suggestions">
+                            <span class="suggestion">Radicación</span>
+                            <span class="suggestion">Investigación preliminar</span>
+                            <span class="suggestion">Notificaciones</span>
+                            <span class="suggestion">Emplazamiento</span>
+                            <span class="suggestion">Audiencia de pruebas y alegatos</span>
+                            <span class="suggestion">Medios de apremio</span>
+                            <span class="suggestion">Sobreseimiento</span>
+                            <span class="suggestion">Violencia polìtica contra las mujeres  por razón de género</span>
+                            <span class="suggestion">Normativa vigente</span>
+                            <span class="suggestion">Comprendio de criterios  y resoluciones vigentes</span>
+                            <span class="suggestion">Manuales</span>
+                            <span class="suggestion">Formatos</span>
+                        </div>
+
+                    <!-- <div class="search-container">
+                        <input type="text" id="search-box" placeholder="Buscar por Temas" autocomplete="off" />
+                        <div class="search-icon">&#x1F50D;</div>
+                        <div class="suggestions">
+                            <span class="suggestion">Radicación</span>
+                            <span class="suggestion">Investigación preliminar</span>
+                            <span class="suggestion">Notificaciones</span>
+                            <span class="suggestion">Emplazamiento</span>
+                            <span class="suggestion">Audiencia de pruebas y alegatos</span>
+                            <span class="suggestion">Medios de apremio</span>
+                            <span class="suggestion">Sobreseimiento</span>
+                            <span class="suggestion">Violencia polìtica contra las mujeres  por razón de género</span>
+                            <span class="suggestion">Normativa vigente</span>
+                            <span class="suggestion">Comprendio de criterios  y resoluciones vigentes</span>
+                            <span class="suggestion">Manuales</span>
+                            <span class="suggestion">Formatos</span>
+                        </div>
+                    </div> -->
+
                 </form>
 
 
@@ -235,4 +270,45 @@
             console.log('submit');
         })
     </script>
+
+<script>
+        // Mostrar sugerencias cuando el input tenga foco
+        var searchBox = document.getElementById('search-box');
+        var suggestionsContainer = document.querySelector('.suggestions');
+
+        searchBox.addEventListener('focus', function() {
+            suggestionsContainer.style.display = 'block';
+        });
+
+        searchBox.addEventListener('input', function() {
+            var input = this.value.toLowerCase();
+            var suggestions = document.querySelectorAll('.suggestion');
+            
+            suggestions.forEach(function(suggestion) {
+                var text = suggestion.textContent.toLowerCase();
+                if(text.includes(input)) {
+                    suggestion.style.display = 'inline-block';
+                } else {
+                    suggestion.style.display = 'none';
+                }
+            });
+        });
+
+        // Asignar valor al input y ocultar sugerencias al hacer clic en una sugerencia
+        suggestionsContainer.addEventListener('click', function(e) {
+            if (e.target.classList.contains('suggestion')) {
+                searchBox.value = e.target.textContent;
+                suggestionsContainer.style.display = 'none';
+                form.submit();
+            }
+        });
+
+        // Opcional: Ocultar sugerencias cuando se hace clic fuera del input
+        document.addEventListener('click', function(e) {
+            if (!searchBox.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+                suggestionsContainer.style.display = 'none';
+            }
+        });
+    </script>
+
 </nav>

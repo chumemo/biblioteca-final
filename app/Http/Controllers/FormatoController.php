@@ -16,14 +16,14 @@ class FormatoController extends Controller
     {
         $formatos = Formato::where('estado', '1')
             ->orderBy('fecha')
-            ->paginate(20);
+            ->paginate(6);
         return view("formato.index", compact("formatos"));
     }
 
     public function admin()
     {
         $formatos = Formato::orderByDesc('created_at')
-            ->paginate(20);
+            ->paginate(10);
         return view("formato.admin", compact("formatos"));
     }
 

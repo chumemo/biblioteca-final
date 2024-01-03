@@ -63,9 +63,10 @@ return [
     |
     */
 
-    'logo' => 'Biblioteca',
+    'logo' => 'Panel',
     'logo_img' => 'assets/img/Logo-IEEG.png',
-    'logo_img_class' => 'brand-image elevation-3',
+    // 'logo_img_class' => 'brand-image elevation-3',
+    'logo_img_class' => 'brand-image',
     'logo_img_xl' => null,
     // 'logo_img_xl_class' => 'brand-image-sm',
     'logo_img_alt' => 'Logo biblioteca digital',
@@ -370,7 +371,13 @@ return [
                     'can'     => 'crear entidades',
                 ],
             ]
-        ]
+        ],
+        [
+            'text' => 'BIBLIOTECA',
+            'url'  => '/',
+            'icon' => "fas fa-solid fa-store",
+            'can'     => 'crear entradas',
+        ],
         //        [
         //             'text'    => 'level_one',
         //             'url'     => '#',

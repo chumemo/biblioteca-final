@@ -13,14 +13,14 @@ class ManualController extends Controller
     {
         $manuales = Manual::where('estado', '1')
             ->orderBy('fecha')
-            ->paginate(20);
+            ->paginate(6);
         return view("manual.index", compact("manuales"));
     }
 
     public function admin() 
     {
         $manuales = Manual::orderByDesc('created_at')
-            ->paginate(20);
+            ->paginate(10);
         return view("manual.admin", compact("manuales"));
     }
     /**

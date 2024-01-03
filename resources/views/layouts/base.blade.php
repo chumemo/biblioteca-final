@@ -33,10 +33,10 @@
             </header>
         @endif
         <!-- section title pagination -->
-        <section class="container mt-16">
+        <section class="container mt-10 ">
             <h3 class="text-secondary">@yield('titulo_seccion')</h3>
             <!-- Pagination Section -->
-            <div class="container mt-4">
+            <div class="container mt-2">
                 <div class="d-flex justify-content-end">
                     @yield('pagination')
                 </div>

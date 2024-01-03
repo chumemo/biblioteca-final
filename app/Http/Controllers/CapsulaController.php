@@ -17,13 +17,13 @@ class CapsulaController extends Controller
     {
         $capsulas = Capsula::where('estado', '1')
             ->orderByDesc('fecha')
-            ->paginate(20);
+            ->paginate(4);
         return view('capsula.index', compact('capsulas'));
     }
 
     public function admin(){
         $capsulas = Capsula::orderByDesc('created_at')
-            ->paginate(20);
+            ->paginate(10);
         return view('capsula.admin', compact('capsulas'));
     }
 
