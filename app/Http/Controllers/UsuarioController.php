@@ -46,14 +46,16 @@ class UsuarioController extends Controller
         $user->password = bcrypt($request->password);
         $pwd = $request->password;
 
+        $user->rol = $request->input('rolSelect');
+
         $user->save();
 
-        $roleId = $request->input('rolSelect');
-        $role = Role::find($roleId);
+        // $roleId = $request->input('rolSelect');
+        // $role = Role::find($roleId);
 
-        if ($role) {
-            $user->assignRole($role);
-        }
+        // if ($role) {
+        //     $user->assignRole($role);
+        // }
 
         Mail::to($user->email)->send(new CredencialesEmail($user, $pwd));
 
@@ -88,15 +90,16 @@ class UsuarioController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'rol' => $request->input('rolSelect'),
         ]);
 
-        $roleId = $request->input('rolSelect');
-        $role = Role::find($roleId);
+        // $roleId = $request->input('rolSelect');
+        // $role = Role::find($roleId);
 
-        if ($role) {
-            $user->roles()->sync([$role->id]);
-        }
+        // if ($role) {
+        //     $user->roles()->sync([$role->id]);
+        // }
 
         return redirect()->route('usuarios.index');
     }

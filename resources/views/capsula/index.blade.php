@@ -9,7 +9,7 @@
             @forelse ($capsulas as $capsula)
                 <div class="col-lg-3 col-md-6 mb-4 cardEffect">
                     <a href="" data-bs-toggle="modal" data-bs-target="#miModal" class="text-decoration-none ">
-                        <div class="card align-items-center border-0 " style="width: 100%;">
+                        <div class="card align-items-center border-0 bg-transparent" style="width: 100%;">
                             <img src="{{ $capsula->urlImagen }}" class="" alt="Capsula thumbnail" width="200px"
                             height="200px">
                             <h6 class="limitedText text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}</h6>
@@ -35,6 +35,13 @@
     <!-- Modal -->
     <div class="modal fade bg-primary-modal" id="miModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog ">
+
+        <div class="col-lg-9 col-md-9 col-sm-9 text-right text-white ">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <h6 class="limitedText text-white-f">Cerrar X</h6>
+                </button>
+            </div>
+
             <div class="modal-content p-0 m-0">
                 <div class="modal-body p-0 m-0">
 
@@ -47,9 +54,9 @@
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
-                    <h5 class="gothamB text-secondary px-4 " id="modalTitle"></h5>
+                    <h5 class="gothamB text-secondary px-4 pt-3 mb-2" id="modalTitle"></h5>
                     <hr>
-                    <p class="fs-6 px-4 text-secondary " id="modalDescription"></p>
+                    <p class="fs-6 px-4 text-secondary pt-2 mb-2" id="modalDescription"></p>
 
 
 

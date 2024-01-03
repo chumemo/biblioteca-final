@@ -31,8 +31,15 @@
     <!-- Modal -->
     <div class="modal fade bg-primary-modal" id="miModal" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
         <div class="modal-dialog ">
-        <h6 class="limitedText text-white mt-2 pt-1 mb-2 text-center"> {{ $folleto->titulo }}</h6>
-            <div class="modal-content p-0 m-0">            
+            <div class="col-lg-9 col-md-9 col-sm-9 text-right text-white ">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <h6 class="limitedText text-white-f">Cerrar X</h6>
+                </button>
+            </div>
+
+            <h6 class="limitedText text-white mt-2 pt-1 mb-2 text-center"> {{ $folleto->titulo }}</h6>
+            
+            <div class="modal-content p-0 m-0">                                        
                 <div class="modal-body p-0 m-0">                
                     <div id="carousel" class="carousel slide">
                         <div class="carousel-inner">

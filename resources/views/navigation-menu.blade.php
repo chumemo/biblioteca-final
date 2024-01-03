@@ -44,10 +44,16 @@
 
                         <x-slot name="content">
 
-
-                            <x-dropdown-link href="{{ route('admin.home') }}">
+                            <!-- <x-dropdown-link href="{{ route('admin.home') }}">
                                 Panel
-                            </x-dropdown-link>
+                            </x-dropdown-link> -->
+
+                            @if ( Auth::user()->rol == 1)
+                                <x-dropdown-link href="{{ route('admin.home') }}">
+                                    Panel
+                                </x-dropdown-link>
+                            @endif
+                            
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">

@@ -1096,6 +1096,10 @@ Nuevos revisión final
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.text-white-f {
+  color: #fff !important;
+}
+
 /* Search */
 .search-container {
   position: relative;
