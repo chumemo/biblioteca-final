@@ -65,12 +65,12 @@
                 <div class="card-img-overlay d-flex flex-column justify-content-end cardEffect">
                     <div class="d-flex align-items-end">
                         <img class="mr-2" src="{{ asset('assets/img/ICONO-Folletos.png') }}" alt="icono Folletos" width="50px">
-                        <h5 class="card-title  gothamR text-primary">
+                        <h5 class="card-title  gothamR text-cream">
                             FOLLETOS
                         </h5>
                     </div>
 
-                    <p class="card-text text-primary">Material didáctico e infografías en materia de procedimiento especial sancionador.</p>
+                    <p class="card-text text-cream">Material didáctico e infografías en materia de procedimiento especial sancionador.</p>
 
                 </div>
             </a>
@@ -120,7 +120,7 @@
                             width="50px">
                         <h5 class="card-title gothamR text-cream">CATÁLOGOS</h5>
                     </div>
-                    <p class="card-text text-primary">Conjunto de infracciones aplicables en el procedimiento especial sancionador</p>
+                    <p class="card-text text-cream">Conjunto de infracciones aplicables en el procedimiento especial sancionador</p>
                 </div>
             </a>
         </div>
@@ -152,7 +152,7 @@
                         <h5 class="card-title gothamR text-cream">COMPENDIOS</h5>
                     </div>
                     
-                    <p class="card-text text-primary">Información relacionada con procedimiento especial sancionador aplicable en el estado de Guanajuato de autoridades electorales como SCJN, INE, IEEG, TEPJF Y TEEG.</p>
+                    <p class="card-text text-cream">Información relacionada con procedimiento especial sancionador aplicable en el estado de Guanajuato de autoridades electorales como SCJN, INE, IEEG, TEPJF Y TEEG.</p>
 
                 </div>
             </a>

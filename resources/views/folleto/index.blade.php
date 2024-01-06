@@ -10,7 +10,7 @@
             @forelse ($folletos as $folleto)
                 <div class="col-lg-2 col-md-4 mb-2 cardEffect ">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#miModal" id="link">
-                        <span hidden>{{ $folleto->id }}</span>
+                        <span id="{{$folleto->id}}" titulo="{{$folleto->titulo}}" urlImagen="{{$folleto->urlImagen}}" hidden>{{ $folleto->id }}</span>
                         <div class="card align-items-center border-0 bg-transparent" style="width: 100%;">
                             <img src="{{ asset($folleto->urlImagenThumb); }}" class="img-folleto" alt="Manual img" width="200px" height="200px">
                             <h6 class=" text-secondary mt-2 text-center titulo-folleto"> {{ $folleto->titulo }}</h6>
@@ -37,43 +37,30 @@
                 </button>
             </div>
 
-            <h6 class="limitedText text-white mt-2 pt-1 mb-2 text-center"> {{ $folleto->titulo }}</h6>
+            <h6 id="tituloModal" class="limitedText text-white mt-2 pt-1 mb-2 text-center"> --- </h6>
             
             <div class="modal-content p-0 m-0">                                        
                 <div class="modal-body p-0 m-0">                
                     <div id="carousel" class="carousel slide">
                         <div class="carousel-inner">
+                            
                             <!-- @forelse ($folletos as $folleto)
                                 {{-- <div class="carousel-item @if ($loop->first) active @endif"> --}}
                                     <div class="carousel-item" id="{{ $folleto->id }}">                                    
                                     <img src="{{ asset($folleto->urlImagen) }}" class="d-block" alt="folleto" height="640px">
-                                </div>
-                                
-                
+                                </div>                
                             @empty
                                 <h3>NO HAY IMAGENES</h3>
-                            @endforelse -->
+                            @endforelse  -->
+                           
 
-                            
-
-
-
-
-                            
-
-
-
-
-                            @if (isset($folleto))
-                                <div class="carousel-item active" id="{{ $folleto->id }}">                                    
-                                    <img src="{{ asset($folleto->urlImagen) }}" class="d-block" alt="folleto" height="640px">
-                                </div>
-                            @else
-                                <h3>NO HAY IMAGENES {{$folleto->id}}</h3>
-                            @endif
+                            <div class="carousel-item active" id="{{ $folleto->id }}">                                    
+                                <img id="imagenModal" src="{{ asset($folleto->urlImagen) }}" class="d-block" alt="folleto" height="640px">
+                            </div>                        
+                            <h3 id="mensajeModal">NO HAY IMAGEN</h3>
  
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
+                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
@@ -82,7 +69,7 @@
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
-                        </button>
+                        </button> -->
                     </div>
 
                 </div>
@@ -93,11 +80,28 @@
         let folletos = document.querySelectorAll('#link');
         folletos.forEach(folletoLink => {
             folletoLink.addEventListener('click', (e) => {
+                
+                // let span = folletoLink.querySelector('span');
+                
+                // let id = span.textContent;
+                // console.log('od ', id, span, span.id, span.titulo, span.textContent);
+                // console.log('od 2', span.getAttribute('id'), span.getAttribute('titulo'), span.getAttribute('urlImagen'));
+
+                // let carouselItem = document.getElementById(id);
+                // carouselItem.classList.add('active');
+
                 let span = folletoLink.querySelector('span');
-                let id = span.textContent;
-                console.log('od ', id)
-                let carouselItem = document.getElementById(id);
-                carouselItem.classList.add('active');
+                let titulo =  span.getAttribute('titulo');
+                let imagen =  span.getAttribute('urlImagen');                
+                
+                if(imagen == null){                
+                    document.getElementById('mensajeModal').style.display = 'block';
+                }else{
+                    document.getElementById('mensajeModal').style.display = 'none';
+                    document.getElementById('tituloModal').textContent = titulo;
+                    document.getElementById('imagenModal').src = imagen;
+                }
+
             })
         });
         
