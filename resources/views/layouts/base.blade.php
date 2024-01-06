@@ -33,7 +33,7 @@
             </header>
         @endif
         <!-- section title pagination -->
-        <section class="container mt-10 ">
+        <section class="container mt-11 ">
             <h3 class="text-secondary">@yield('titulo_seccion')</h3>
             <!-- Pagination Section -->
             <div class="container mt-2">

@@ -17,7 +17,27 @@ class FormatoController extends Controller
         $formatos = Formato::where('estado', '1')
             ->orderBy('fecha')
             ->paginate(6);
+        // return view("formato.index", compact("formatos"));
+
+        // $formatos = array();
+        // $_formatos = Formato::where('estado', '1')
+        //     ->orderBy('fecha')
+        //     ->paginate(6);
+
+        // // recorer $_formatos y revisar si el nombre del atributo urlImagenThumb contiene el texto .xlsx
+        // foreach ($_formatos as $key => $formato) {
+        //     if (strpos($formato->urlImagenThumb, '.xlsx') !== false) {
+        //         // si lo contiene, entonces no lo agregamos al array $formatos
+        //         // $formato->urlImagenThumb = asset('assets/img/Formato-XLSX.png');
+        //         array_push($formatos, $formato);
+        //     } else {
+        //         // si no lo contiene, entonces lo agregamos al array $formatos
+        //         array_push($formatos, $formato);
+        //     }
+        // }
+            
         return view("formato.index", compact("formatos"));
+
     }
 
     public function admin()

@@ -7,10 +7,29 @@
         <div class="row">
 
             @forelse ( $catalogos as $catalogo)
+
+            <?php
+                $_src = $catalogo->urlImagen;
+                if (strpos($catalogo->urlDocumento, '.xlsx') !== false) {
+                    $_src = asset('assets/img/Formato-XLSX.png');
+                }
+                if (strpos($catalogo->urlDocumento, '.docx') !== false) {
+                    $_src = asset('assets/img/Formato-DOCX.png');
+                }
+                if (strpos($catalogo->urlDocumento, '.pptx') !== false) {
+                    $_src = asset('assets/img/Formato-PPTX.png');
+                }
+                
+            ?>
+
             <div class="col-lg-2 col-md-4 mb-2 cardEffect">
                 <div class="card align-items-center border-0 bg-transparent" style="width: 100%;">
                     <!-- <p class="text-secondary">{{ $catalogo->titulo }}</p> -->
-                    <img src="{{ $catalogo->urlImagen }}" class="img-catalogo" alt="catalogo img">
+                    
+                    <!-- <img src="{{ $catalogo->urlImagen }}" class="img-catalogo" alt="catalogo img"> -->
+
+                    <img src="{{ $_src }}" class="img-catalogo" alt="catalogo img">
+
                     <ul class="list-group list-group-flush align-items-center gothamB">
                         <li class="list-group-item bg-transparent">
                             <a href="{{ $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>

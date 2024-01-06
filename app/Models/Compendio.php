@@ -11,7 +11,7 @@ class Compendio extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "criterio", "anio", "autorId", "area", "titulo", "descripcion", "urlDocumento", "urlImagen", "estado"
+        "criterio", "anio", "autorId", "area", "titulo", "descripcion", "urlDocumento", "urlImagen", "estado", "tema"
     ];
 
     protected $title = "compendios";

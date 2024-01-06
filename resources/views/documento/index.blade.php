@@ -2,20 +2,28 @@
 @section('content')
 @section('titulo_seccion', 'DOCUMENTOS')
 
+
+
 <div class="container mt-4">
 
     <div class="row">
+        <!-- <p>
+            aut {{ $autoridadid_param }}
+        </p> -->
+
         <div class="d-flex flex-direction-row align-items-center justify-content-center">
             <ul class="list-inline border border-primary mb-4 p-2 rounded-lg">
                 <li class="list-inline-item">
                     <a href="{{ route('documento.index') }}">
-                        <button class="btn btn-warning text-white p-2">TODOS</button>
+                        <!-- <button class="btn btn-warning text-white p-2">TODOS</button> -->
+                        <button class="btn {{ Request::get('autoridadid') == null ? 'btn-warning text-white p-2' : 'btn-light p-2' }}">TODOS</button>
                     </a>
-                </li>
+                </li>                
                 @foreach ( $autoridades as $autoridad)
                 <li class="list-inline-item">
                     <a href="{{ route('documento.index', ['autoridadId' => $autoridad->id]) }}">
-                        <button class="btn btn-light p-2">{{ $autoridad->nombre }}</button>
+                        <!-- <button class="btn btn-light p-2">{{ $autoridad->nombre }}</button> -->
+                        <button class="btn {{ Request::get('autoridadid') == $autoridad->id ? 'btn-warning text-white p-2' : 'btn-light p-2' }}">{{ $autoridad->nombre }}</button>
                     </a>
                 </li>
                 @endforeach

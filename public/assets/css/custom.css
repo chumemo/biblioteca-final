@@ -1024,12 +1024,13 @@ Nuevos revisión final
 .img-formato{
   width: 170px;
   height: 170px;
-  object-fit: cover;
+  object-fit:fill;
 }
 
 .img-catalogo{
   width: 160px;
-  height: 240px;
+  height: 200px;
+  object-fit: fill;
 }
 
 .titulo-formato{
@@ -1048,6 +1049,11 @@ Nuevos revisión final
 
 .full-width{
   width: 100% !important;
+}
+
+.text-align-left{
+  background-color: red !important;
+  width:70%;
 }
 
 .table-header-compendio{
@@ -8107,6 +8113,10 @@ textarea.form-control-lg {
 
 .mt-10{
   margin-top: 8.6rem !important;
+}
+
+.mt-11{
+  margin-top: 9rem !important;
 }
 
 .mt-auto {

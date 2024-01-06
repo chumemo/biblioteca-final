@@ -43,7 +43,7 @@
                 <div class="modal-body p-0 m-0">                
                     <div id="carousel" class="carousel slide">
                         <div class="carousel-inner">
-                            @forelse ($folletos as $folleto)
+                            <!-- @forelse ($folletos as $folleto)
                                 {{-- <div class="carousel-item @if ($loop->first) active @endif"> --}}
                                     <div class="carousel-item" id="{{ $folleto->id }}">                                    
                                     <img src="{{ asset($folleto->urlImagen) }}" class="d-block" alt="folleto" height="640px">
@@ -52,7 +52,25 @@
                 
                             @empty
                                 <h3>NO HAY IMAGENES</h3>
-                            @endforelse
+                            @endforelse -->
+
+                            
+
+
+
+
+                            
+
+
+
+
+                            @if (isset($folleto))
+                                <div class="carousel-item active" id="{{ $folleto->id }}">                                    
+                                    <img src="{{ asset($folleto->urlImagen) }}" class="d-block" alt="folleto" height="640px">
+                                </div>
+                            @else
+                                <h3>NO HAY IMAGENES {{$folleto->id}}</h3>
+                            @endif
  
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
@@ -77,6 +95,7 @@
             folletoLink.addEventListener('click', (e) => {
                 let span = folletoLink.querySelector('span');
                 let id = span.textContent;
+                console.log('od ', id)
                 let carouselItem = document.getElementById(id);
                 carouselItem.classList.add('active');
             })

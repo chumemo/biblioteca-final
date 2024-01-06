@@ -4,16 +4,33 @@
 
     <div class="container mt-4">
 
-        <div class="row">
+        <div class="row">            
 
             @forelse ($capsulas as $capsula)
                 <div class="col-lg-3 col-md-6 mb-4 cardEffect">
+                    
                     <a href="" data-bs-toggle="modal" data-bs-target="#miModal" class="text-decoration-none ">
                         <div class="card align-items-center border-0 bg-transparent" style="width: 100%;">
-                            <img src="{{ $capsula->urlImagen }}" class="" alt="Capsula thumbnail" width="200px"
-                            height="200px">
-                            <h6 class="limitedText text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}</h6>
-                            <p class="text-secondary fs-xxsm text-decoration-none ">{{ $capsula->fecha }}</p>
+                            
+
+                            <!-- <img src="{{ $capsula->urlImagen }}" class="" alt="Capsula thumbnail" width="200px"
+                            height="200px"> -->
+
+                            <?php
+                                
+                                $videoId = "";
+                                preg_match('/\/embed\/([a-zA-Z0-9_-]+)/', $capsula->url, $matches);
+
+                                if (isset($matches[1])) {
+                                    $videoId = $matches[1];
+                                } 
+
+                                $youtubeThumbnailUrl =  "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg";
+                            ?>
+                            <img src="{{ $youtubeThumbnailUrl }}" class="" alt="Capsula thumbnail" width="200px" height="200px">
+
+                            <h6 class="limitedText text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}  </h6>
+                            <p class="text-secondary fs-xxsm text-decoration-none limitedText ">{{ $capsula->fecha }}</p>
                             <span id="url" hidden>{{ $capsula->url }}</span>
                             <p id="capsulaDescription" hidden>{{ $capsula->descripcion }}</p>
                         </div>
@@ -41,6 +58,8 @@
                     <h6 class="limitedText text-white-f">Cerrar X</h6>
                 </button>
             </div>
+
+            <!-- <h6 class="limitedText text-white mt-2 pt-1 mb-2 text-center"> {{ $capsula->titulo }}</h6> -->
 
             <div class="modal-content p-0 m-0">
                 <div class="modal-body p-0 m-0">

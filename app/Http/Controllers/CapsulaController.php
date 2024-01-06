@@ -150,4 +150,17 @@ class CapsulaController extends Controller
         $capsula->save();
         return redirect()->route('capsula.admin');
     }
+
+
+    function getYoutubeThumbnail($url) {
+        // Extraer el ID del video de la URL
+        parse_str(parse_url($url, PHP_URL_QUERY), $query);
+        $videoId = $query['v'];
+    
+        // Construir la URL de la miniatura
+        $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg";
+    
+        return $thumbnailUrl;
+    }
+
 }

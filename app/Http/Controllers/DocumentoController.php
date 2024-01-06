@@ -12,6 +12,20 @@ class DocumentoController extends Controller
 {
     public function index(Request $request)
     {
+
+        $request = request(); 
+        // $request->path();
+        
+        $autoridadid_param = $request->fullUrl();
+        //$autoridadid_param = $request->query('autoridadid');
+        // obtener de la url la variable autodidadid
+
+
+        // $urlCompleta = request()->fullUrl();
+        // $partesUrl = parse_url($urlCompleta);
+        // $autoridadid_param = $partesUrl[1];
+        
+
         $autoridades = Autoridad::all();
         $documentos = Documento::where('estado', '1')
         ->orderByDesc('fecha')
@@ -21,7 +35,7 @@ class DocumentoController extends Controller
         {
             $documentos = Documento::where('autoridadId', $request->autoridadId)->orderByDesc('fecha')->paginate(20);
         } 
-        return view('documento.index', compact('documentos', 'autoridades'));
+        return view('documento.index', compact('documentos', 'autoridades', 'autoridadid_param'));
     }
 
     public function admin()
