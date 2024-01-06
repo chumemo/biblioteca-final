@@ -13,6 +13,17 @@
                     <form action="{{ route('compendio.filtrar') }}" method="POST" class="d-flex flex-row">
                         @method('POST')
                         @csrf
+                        
+                        <div class="mb-3 me-3">
+                            <select id="tema" class="form-select form-select-sm border-primary " name="tema"
+                                aria-label="Selecciona un tema">
+                                <option value="" disabled selected>Tema</option>
+                                @foreach ($temas as $tema)
+                                    <option value="{{ $tema->id }}">{{ $tema->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="mb-3 me-3">
                             <select id="criterio" class="form-select form-select-sm border-primary " name="criterio"
                                 aria-label="Selecciona un criterio">
@@ -59,6 +70,7 @@
                     <table class="table table-header-compendio">
                         <thead>
                             <tr class="table-warning ">
+                                <th>TEMA</th>
                                 <th>CRITERIO</th>
                                 <th>AÑO</th>
 
@@ -70,6 +82,7 @@
                         <tbody>
                             @foreach ($compendios as $compendio)
                                 <tr>
+                                    <td>{{ $compendio->temaId->nombre ?? '' }}</td>
                                     <td>{{ $compendio->criterioId->nombre ?? '' }}</td>
                                     <td>{{ $compendio->anio }}</td>
 

@@ -112,6 +112,24 @@
 
                                     </div>
 
+                                    <div class="form-group d-flex flex-col justify-content-between mt-4 flex-wrap">
+
+                                        <div class="item">
+                                            <label class="text-secondary">Tema</label>
+                                            <select name="tema" id="temaId" class="form-select">
+                                                <option value="0"></option>
+                                                @foreach ($temas as $tema)
+                                                    <option value="{{ $tema->id }}">{{ $tema->nombre }}</option>
+                                                @endforeach
+
+                                            </select>
+
+                                        </div>
+                                        
+
+                                    </div>
+
+
                                     <div class="box-footer mt20 ">
                                         <button type="submit" class="btn btn-primary ">ACTUALIZAR</button>
                                         <a href="{{ route('compendio.admin') }}" class="btn btn-secondary">CANCELAR</a>

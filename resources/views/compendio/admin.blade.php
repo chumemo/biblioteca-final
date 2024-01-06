@@ -26,6 +26,7 @@
                     {{-- <th>AREA</th> --}}
                     <th>IDENTIFICACION</th>
                     <th>SINTESIS</th>
+                    <th>TEMA</th>
                     <th>PDF</th>
                 </tr>
             </thead>
@@ -64,6 +65,13 @@
                             
                             <a href="" data-bs-toggle="modal" data-bs-target="#modal" id="link" >Ver más</a>
 
+                        </td>
+                        <td>
+                            @if ($compendio->tema != null && $temas != null)
+                                 {{ $temas->find($compendio->tema)->nombre }}                                                                 
+                            @else
+                                --
+                            @endif
                         </td>
                         <td>
                             @if ($compendio->urlDocumento == null)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Compendio;
 use App\Models\Autoridad;
 use App\Models\Criterio;
+use App\Models\Tema;
 
 
 use Illuminate\Http\Request;
@@ -20,17 +21,23 @@ class CompendioController extends Controller
     {
         $criterios = Criterio::all();
         $autoridades = Autoridad::all();
+        $temas = Tema::all();
         $compendios = Compendio::where('estado', 1)
             ->orderByDesc('anio')
             ->paginate(20);
         
-        return view("compendio.index", compact("compendios", "criterios", "autoridades" ));
+        return view("compendio.index", compact("compendios", "criterios", "autoridades" , "temas"));
     }
     public function admin()
     {
         $compendios = Compendio::orderByDesc('created_at')
             ->paginate(20);
-        return view('compendio.admin', compact('compendios'));
+        $temas = Tema::all();
+        // $id=1
+        // buscar en $temas el tema con id = $id
+        // $tema = $temas->find($id);
+
+        return view('compendio.admin', compact('compendios','temas'));
     }
     /**
      * Show the form for creating a new resource.
@@ -39,7 +46,8 @@ class CompendioController extends Controller
     {
         $criterios = Criterio::all();
         $autoridades = Autoridad::all();
-        return view('compendio.create', compact('autoridades', 'criterios'));
+        $temas = Tema::all();
+        return view('compendio.create', compact('autoridades', 'criterios', "temas"));
     }
 
     /**
@@ -56,7 +64,7 @@ class CompendioController extends Controller
         $compendio->autoridad = $request->autoridad;
         $compendio->criterio = $request->criterio;
 
-        // $compendio->criterio = $request->tema;
+        $compendio->tema = $request->tema;
 
         $compendio->autorId = $request->user()->id;
 
@@ -121,8 +129,9 @@ class CompendioController extends Controller
         $compendio = Compendio::find($id);
         $autoridades = Autoridad::all();
         $criterios = Criterio::all();
+        $temas = Tema::all();
 
-        return view('compendio.edit', compact('compendio', 'autoridades', 'criterios'));
+        return view('compendio.edit', compact('compendio', 'autoridades', 'criterios','temas'));
     }
 
     /**
@@ -137,6 +146,8 @@ class CompendioController extends Controller
         $compendio->estado = $request->estado;
         $compendio->autoridad = $request->autoridad;
         $compendio->criterio = $request->criterio;
+
+        $compendio->tema = $request->tema;
 
         $compendio->autorId = $request->user()->id;
 

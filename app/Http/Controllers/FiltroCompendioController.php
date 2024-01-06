@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Compendio;
 use App\Models\Criterio;
 use App\Models\Autoridad;
+use App\Models\Tema;
 
 class FiltroCompendioController extends Controller
 {
@@ -17,9 +18,14 @@ class FiltroCompendioController extends Controller
         $autoridad = $request->input('autoridad', null);
         $anio = $request->input('anio', null);
         $criterio = $request->input('criterio', null);
+        $tema = $request->input('tema', null);
 
         
         $query = Compendio::query();
+
+        if ($tema !== null) {
+            $query->where('tema', $tema);
+        }
 
         if ($autoridad !== null) {
             $query->where('autoridad', $autoridad);
@@ -39,7 +45,8 @@ class FiltroCompendioController extends Controller
 
         $criterios = Criterio::all();
         $autoridades = Autoridad::all();
+        $temas = Tema::all();
 
-        return view('compendio.index', compact('compendios', 'autoridades', 'criterios'));
+        return view('compendio.index', compact('compendios', 'autoridades', 'criterios','temas'));
     }
 }
