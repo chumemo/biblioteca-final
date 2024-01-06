@@ -56,6 +56,8 @@ class CompendioController extends Controller
         $compendio->autoridad = $request->autoridad;
         $compendio->criterio = $request->criterio;
 
+        // $compendio->criterio = $request->tema;
+
         $compendio->autorId = $request->user()->id;
 
         if ($request->hasFile("urlImagen")) {

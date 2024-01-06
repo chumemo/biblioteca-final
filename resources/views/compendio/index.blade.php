@@ -85,7 +85,7 @@
                                                 <path
                                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
                                             </svg> -->
-                                            <img src="assets/img/Ver.png" class="btn-table-ver-compendios" alt="">
+                                            <img src="/assets/img/Ver.png" class="btn-table-ver-compendios" alt="">
                                         </a>
                                         <a class="ml-3" href="{{ '../' . $compendio->urlDocumento }}" data-id="{{ $compendio->id }}"
                                             data-tipo="compendio" download>
@@ -96,7 +96,7 @@
                                                 <path
                                                     d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
                                             </svg> -->
-                                            <img src="assets/img/Descarga.png" class="btn-table-ver-compendios" alt="">
+                                            <img src="/assets/img/Descarga.png" class="btn-table-ver-compendios" alt="">
                                         </a>
                                     </td>
                                 </tr>

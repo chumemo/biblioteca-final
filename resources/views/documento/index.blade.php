@@ -7,23 +7,23 @@
 <div class="container mt-4">
 
     <div class="row">
-        <!-- <p>
-            aut {{ $autoridadid_param }}
+        <!-- <p id="pParam">
+            Param aut 
         </p> -->
 
         <div class="d-flex flex-direction-row align-items-center justify-content-center">
             <ul class="list-inline border border-primary mb-4 p-2 rounded-lg">
                 <li class="list-inline-item">
                     <a href="{{ route('documento.index') }}">
-                        <!-- <button class="btn btn-warning text-white p-2">TODOS</button> -->
-                        <button class="btn {{ Request::get('autoridadid') == null ? 'btn-warning text-white p-2' : 'btn-light p-2' }}">TODOS</button>
+                        <button id="btnTodos" class="btn btn-warning text-white p-2 btnAutoridad">TODOS</button>
+                        <!-- <button class="btn {{ Request::get('autoridadid') == null ? 'btn-warning text-white p-2' : 'btn-light p-2' }}">TODOS</button> -->
                     </a>
                 </li>                
                 @foreach ( $autoridades as $autoridad)
                 <li class="list-inline-item">
                     <a href="{{ route('documento.index', ['autoridadId' => $autoridad->id]) }}">
-                        <!-- <button class="btn btn-light p-2">{{ $autoridad->nombre }}</button> -->
-                        <button class="btn {{ Request::get('autoridadid') == $autoridad->id ? 'btn-warning text-white p-2' : 'btn-light p-2' }}">{{ $autoridad->nombre }}</button>
+                        <button id="btnAutoridad{{$autoridad->id}}" class="btnAutoridad btn btn-light p-2">{{ $autoridad->nombre }}</button>
+                        <!-- <button class="btn {{ Request::get('autoridadid') == $autoridad->id ? 'btn-warning text-white p-2' : 'btn-light p-2' }}">{{ $autoridad->nombre }}</button> -->
                     </a>
                 </li>
                 @endforeach
@@ -89,4 +89,33 @@
     </div>
 </div>
 <script src="{{ asset('assets/js/descargasHandler.js')}}" type="module"></script>  
+
+<script>
+    
+    // recorre todos los bototnes btnAutoridad y les quita la clase btm-warning
+    // y les agrega la clase btn-light
+    let btnAutoridades = document.querySelectorAll(".btnAutoridad");
+    btnAutoridades.forEach(btn => {
+        btn.classList.remove("btn-warning");
+        btn.classList.remove("text-white");
+        btn.classList.add("btn-light");
+    });
+
+    let param = "";
+    if (window.location.search) {
+        param = window.location.search.split("=")[1];
+        // console.log('param ', param);
+        // document.getElementById("pParam").innerHTML = "Param aut " + param;
+        document.getElementById("btnAutoridad" + param).classList.remove("btn-light");
+        document.getElementById("btnAutoridad" + param).classList.add("btn-warning");
+        document.getElementById("btnAutoridad" + param).classList.add("text-white");
+    }else{
+        console.log('no param');
+        document.getElementById("btnTodos").classList.remove("btn-light");
+        document.getElementById("btnTodos").classList.add("btn-warning");
+        document.getElementById("btnTodos").classList.add("text-white");
+    }
+
+</script>
+
 @endsection
