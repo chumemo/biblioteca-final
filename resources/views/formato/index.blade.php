@@ -41,7 +41,7 @@
             </div>
                 
             @empty
-                <h4>NINGUN FORMATO POR MOSTRAR</h4>
+                <h4>NINGÚN FORMATO POR MOSTRAR</h4>
             @endforelse
             @section('pagination')
             {{ $formatos->links('pagination::simple-bootstrap-5') }}

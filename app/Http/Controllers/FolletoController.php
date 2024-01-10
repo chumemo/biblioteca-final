@@ -16,7 +16,7 @@ class FolletoController extends Controller
     {
         $folletos= Folleto::where('estado', '1')
             ->orderByDesc('fecha')
-            ->paginate(6);
+            ->paginate(12);
         return view("folleto.index",compact("folletos"));
     }
 

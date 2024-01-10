@@ -29,7 +29,7 @@
                     <!-- <img src="{{ $catalogo->urlImagen }}" class="img-catalogo" alt="catalogo img"> -->
 
                     <img src="{{ $_src }}" class="img-catalogo" alt="catalogo img">
-
+                    <h6 class=" text-secondary mt-2 text-center titulo-catalogo"> {{ $catalogo->titulo }}</h6>
                     <ul class="list-group list-group-flush align-items-center gothamB">
                         <li class="list-group-item bg-transparent">
                             <a href="{{ $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
@@ -40,20 +40,30 @@
                             </a>
                         </li>
                         
-                        <li class="list-group-item  bg-transparent">
+                        <!-- <li class="list-group-item  bg-transparent">
                             <a href="{{ route('catalogo.show',$catalogo)  }}">
                                 <button type="button" id="btnVerPDF"
                                     class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3">
                                     VER EN LÍNEA
                                 </button>
                             </a>
+                        </li> -->
+
+                        <li class="list-group-item  bg-transparent">
+                            <a href="{{ route('catalogo.show',['catalogo'=> $catalogo->id])  }}">
+                                <button type="button" id="btnVerPDF"
+                                    class="btn btnCardManual btnVerManual btn-outline-primary btn-block btn-sm rounded-pill px-3">
+                                    VER EN LÍNEA
+                                </button>
+                            </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
                 
             @empty
-                <h4>NINGUN CATALOGO POR MOSTRAR</h4>
+                <h4>NINGÚN CATALOGO POR MOSTRAR</h4>
             @endforelse
             @section('pagination')
                 {{ $catalogos->links('pagination::simple-bootstrap-5') }}

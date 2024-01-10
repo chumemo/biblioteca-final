@@ -15,7 +15,7 @@ class CatalogoController extends Controller
     {
         $catalogos = Catalogo::where('estado', '1')
         ->orderByDesc('fecha')
-        ->paginate(6);
+        ->paginate(12);
         return view("catalogo.index", compact("catalogos"));
     }
 
@@ -58,7 +58,7 @@ class CatalogoController extends Controller
             $resizedImage->save(storage_path("app/public/documentos/" . $name));
             $catalogo->urlImagen = "storage/documentos/" . $name;
         } else {
-            $catalogo->urlImagen = "assets/img/ICONO-Compendios.png";
+            $catalogo->urlImagen = "assets/img/ICONO-Catalogo.png";
         }
 
         if ($request->hasFile("urlDocumento")) {
@@ -130,7 +130,7 @@ class CatalogoController extends Controller
             $resizedImage->save(storage_path("app/public/documentos/" . $name));
             $catalogo->urlImagen = "storage/documentos/" . $name;
         } else {
-            $catalogo->urlImagen = "assets/img/ICONO-Compendios.png";
+            $catalogo->urlImagen = "assets/img/ICONO-Catalogo.png";
         }
 
         if ($request->hasFile("urlDocumento")) {

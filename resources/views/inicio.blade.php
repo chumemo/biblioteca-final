@@ -208,20 +208,20 @@
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
         <script>
-            // Carousel video playback
-            let iframes = document.querySelectorAll('iframe');
-            let iframesSrc = [];
-            iframes.forEach(iframe => {
-                iframesSrc.push(iframe.src);
-            });
-            document.querySelector('#carousel').addEventListener('slide.bs.carousel', function(e) {
-                iframes.forEach(iframe => {
-                    let temp = iframe.src;
-                    iframe.src = '';
-                    iframe.src = temp;
-                });
+            // // Carousel video playback
+            // let iframes = document.querySelectorAll('iframe');
+            // let iframesSrc = [];
+            // iframes.forEach(iframe => {
+            //     iframesSrc.push(iframe.src);
+            // });
+            // document.querySelector('#carousel').addEventListener('slide.bs.carousel', function(e) {
+            //     iframes.forEach(iframe => {
+            //         let temp = iframe.src;
+            //         iframe.src = '';
+            //         iframe.src = temp;
+            //     });
 
-            });
+            // });
         </script>
 
         </div>

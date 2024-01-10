@@ -16,7 +16,7 @@ class FormatoController extends Controller
     {
         $formatos = Formato::where('estado', '1')
             ->orderBy('fecha')
-            ->paginate(6);
+            ->paginate(12);
         // return view("formato.index", compact("formatos"));
 
         // $formatos = array();

@@ -29,11 +29,12 @@ class DocumentoController extends Controller
         $autoridades = Autoridad::all();
         $documentos = Documento::where('estado', '1')
         ->orderByDesc('fecha')
-        ->paginate(6);
+        ->paginate(12);
 
         if($request->has('autoridadId'))
         {
-            $documentos = Documento::where('autoridadId', $request->autoridadId)->orderByDesc('fecha')->paginate(20);
+            // $documentos = Documento::where('autoridadId', $request->autoridadId)->orderByDesc('fecha')->paginate(20);
+            $documentos = Documento::where('autoridadId', $request->autoridadId)->orderByDesc('fecha')->paginate(50);
         } 
         return view('documento.index', compact('documentos', 'autoridades', 'autoridadid_param'));
     }

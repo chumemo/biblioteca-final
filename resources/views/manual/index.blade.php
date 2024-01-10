@@ -31,7 +31,7 @@
             </div>
                 
             @empty
-                <h4>NINGUN MANUAL POR MOSTRAR</h4>
+                <h4>NINGÚN MANUAL POR MOSTRAR</h4>
             @endforelse
             @section('pagination')
             {{ $manuales->links('pagination::simple-bootstrap-5') }}

@@ -17,7 +17,7 @@ class CapsulaController extends Controller
     {
         $capsulas = Capsula::where('estado', '1')
             ->orderByDesc('fecha')
-            ->paginate(4);
+            ->paginate(12);
         return view('capsula.index', compact('capsulas'));
     }
 

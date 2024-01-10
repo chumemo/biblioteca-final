@@ -12,7 +12,7 @@
         </p> -->
 
         <div class="d-flex flex-direction-row align-items-center justify-content-center">
-            <ul class="list-inline border border-primary mb-4 p-2 rounded-lg">
+            <ul class="list-inline border border-gray mb-4 p-2 rounded-lg">
                 <li class="list-inline-item">
                     <a href="{{ route('documento.index') }}">
                         <button id="btnTodos" class="btn btn-warning text-white p-2 btnAutoridad">TODOS</button>
@@ -55,14 +55,15 @@
 
 
         @forelse ($documentos as $documento)
-            <div class="card mb-3 col-md-12 border-fucsia border-1 cardEffect">
+            <div class="card mb-3 col-md-12  border-1 border-gray cardEffect">
                 <div class="row g-0">
                     <div class="col-md-2 my-1 p-2">
                         <img src="{{ "../" . $documento->urlImagen }}" width="150px" height="150px" alt="icono documento">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <p class="text-secondary"> {{ $documento->fecha . " | " . $documento->tema}}</p>
+                            <!-- <p class="text-secondary"> {{ $documento->fecha . " | " . $documento->tema}}</p> -->
+                            <p class="text-secondary"> {{ $documento->fecha . " | " . ( $documento->tema->nombre ?? '' )  }}</p>                            
                             <p class="cardTitleDocumento text-secondary">{{ $documento->titulo }} </p>
                             <p class="card-text ">{!! $documento->descripcion !!}</p>
                         </div>
@@ -80,7 +81,7 @@
             </div>
 
         @empty
-            <h4>NINGUN documento POR MOSTRAR</h4>
+            <h4>NINGÚN documento POR MOSTRAR</h4>
         @endforelse
 
         @section('pagination')
@@ -100,21 +101,52 @@
         btn.classList.remove("text-white");
         btn.classList.add("btn-light");
     });
+    
+    // console.log('window.location.search ', window.location.search)
 
-    let param = "";
-    if (window.location.search) {
-        param = window.location.search.split("=")[1];
+    // let param = "";
+    // if (window.location.search) {
+    //     console.log('window.location.search ', window.location.search)
+    //     param = window.location.search.split("=")[1];
+    //     console.log('param ', param);
+    //     // console.log('param ', param);
+    //     // document.getElementById("pParam").innerHTML = "Param aut " + param;
+    //     document.getElementById("btnAutoridad" + param).classList.remove("btn-light");
+    //     document.getElementById("btnAutoridad" + param).classList.add("btn-warning");
+    //     document.getElementById("btnAutoridad" + param).classList.add("text-white");
+    // }else{
+    //     console.log('no param');
+    //     document.getElementById("btnTodos").classList.remove("btn-light");
+    //     document.getElementById("btnTodos").classList.add("btn-warning");
+    //     document.getElementById("btnTodos").classList.add("text-white");
+    // }
+
+
+    //
+    // Crear un objeto URLSearchParams basado en los parámetros de la URL actual
+    var queryParams = new URLSearchParams(window.location.search);
+    var autoridadId = null;
+    if (queryParams.has('autoridadId')) {
+        autoridadId = queryParams.get('autoridadId');        
+    }   
+
+    if (autoridadId) {
+        // console.log('window.location.search ', window.location.search)
+        // param = window.location.search.split("=")[1];
         // console.log('param ', param);
-        // document.getElementById("pParam").innerHTML = "Param aut " + param;
-        document.getElementById("btnAutoridad" + param).classList.remove("btn-light");
-        document.getElementById("btnAutoridad" + param).classList.add("btn-warning");
-        document.getElementById("btnAutoridad" + param).classList.add("text-white");
+        // // console.log('param ', param);
+        // // document.getElementById("pParam").innerHTML = "Param aut " + param;
+        document.getElementById("btnAutoridad" + autoridadId).classList.remove("btn-light");
+        document.getElementById("btnAutoridad" + autoridadId).classList.add("btn-warning");
+        document.getElementById("btnAutoridad" + autoridadId).classList.add("text-white");
     }else{
         console.log('no param');
         document.getElementById("btnTodos").classList.remove("btn-light");
         document.getElementById("btnTodos").classList.add("btn-warning");
         document.getElementById("btnTodos").classList.add("text-white");
     }
+
+    //
 
 </script>
 

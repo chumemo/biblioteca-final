@@ -15,27 +15,27 @@
                         @csrf
                         
                         <div class="mb-3 me-3">
-                            <select id="tema" class="form-select form-select-sm border-primary " name="tema"
+                            <select id="tema" class="form-select form-select-sm border-gray text-secundary" name="tema"
                                 aria-label="Selecciona un tema">
                                 <option value="" disabled selected>Tema</option>
                                 @foreach ($temas as $tema)
-                                    <option value="{{ $tema->id }}">{{ $tema->nombre }}</option>
+                                    <option value="{{ $tema->id }}" >{{ $tema->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3 me-3">
-                            <select id="criterio" class="form-select form-select-sm border-primary " name="criterio"
+                            <select id="criterio" class="form-select form-select-sm border-gray " name="criterio"
                                 aria-label="Selecciona un criterio">
                                 <option value="" disabled selected>Criterio</option>
                                 @foreach ($criterios as $criterio)
-                                    <option value="{{ $criterio->id }}">{{ $criterio->nombre }}</option>
+                                    <option value="{{ $criterio->id }}" > {{ $criterio->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="mb-3 me-3">
-                            <select id="anio" name="anio" class="form-select form-select-sm border-primary "
+                            <select id="anio" name="anio" class="form-select form-select-sm border-gray "
                                 aria-label="Selecciona un año">
                                 <option value="" disabled selected>Año</option>
                                 @php
@@ -52,7 +52,7 @@
 
                         <div class="mb-3 me-3">
 
-                            <select id="autoridad" name="autoridad" class="form-select form-select-sm border-primary "
+                            <select id="autoridad" name="autoridad" class="form-select form-select-sm border-gray "
                                 aria-label="Selecciona una autoridad">
                                 <option value="" disabled selected>Autoridad</option>
                                 @foreach ($autoridades as $autoridad)
@@ -61,7 +61,7 @@
                             </select>
                         </div>
 
-                        <button class="btn btn-outline-primary btn-xsm " type="submit">FILTRAR</button>
+                        <button class="btn btn-outline-primary border-gray btn-xsm" type="submit"><label style="color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;">FILTRAR</label></button>
                     </form>
                 </div>
 
@@ -76,20 +76,20 @@
 
                                 <th>IDENTIFICACIÓN</th>
                                 <th>SÍNTESIS</th>
-                                <th>PDF</th>
+                                <th>VER</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($compendios as $compendio)
                                 <tr>
-                                    <td>{{ $compendio->temaId->nombre ?? '' }}</td>
-                                    <td>{{ $compendio->criterioId->nombre ?? '' }}</td>
-                                    <td>{{ $compendio->anio }}</td>
+                                    <td class="text-secondary">{{ $compendio->temaId->nombre ?? '' }}</td>
+                                    <td class="text-secondary">{{ $compendio->criterioId->nombre ?? '' }}</td>
+                                    <td class="text-secondary">{{ $compendio->anio }}</td>
 
-                                    <td>{{ $compendio->titulo }}</td>
-                                    <td>{!! $compendio->descripcion !!}</td>
+                                    <td class="text-identificador">{{ $compendio->titulo }}</td>
+                                    <td class="text-secondary">{!! $compendio->descripcion !!}</td>
                                     <td
-                                        class="d-flex justify-content-around"@if ($compendio->urlDocumento == null || '') hidden @endif>
+                                        class="d-flex text-secundary justify-content-around"@if ($compendio->urlDocumento == null || '') hidden @endif>
                                         <a  href="{{ route('compendio.show', $compendio) }}">
                                             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                                 fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">

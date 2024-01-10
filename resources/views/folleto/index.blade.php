@@ -20,7 +20,7 @@
 
 
             @empty
-                <h4>NINGUN FOLLETO POR MOSTRAR</h4>
+                <h4>NINGÚN FOLLETO POR MOSTRAR</h4>
             @endforelse
             @section('pagination')
             {{ $folletos->links('pagination::simple-bootstrap-5') }}

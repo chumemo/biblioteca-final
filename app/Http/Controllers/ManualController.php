@@ -13,7 +13,7 @@ class ManualController extends Controller
     {
         $manuales = Manual::where('estado', '1')
             ->orderBy('fecha')
-            ->paginate(6);
+            ->paginate(12);
         return view("manual.index", compact("manuales"));
     }
 
