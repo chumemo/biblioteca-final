@@ -56,6 +56,26 @@
                                     <label class="text-secondary">Enlace</label>
                                     <input type="text" name='url' class="form-control" placeholder="Iframe">
                                 </div>
+
+
+                                <div class="form-group">
+                                    <div class="item">
+                                        <input type="hidden" id="temas" name="temas" value="">
+                                        <label class="text-secondary">Temas</label>
+                                        
+                                        <div class="search-container">
+                                            <div id="selected-items"></div>            
+                                            <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                            <div class="suggestions">
+                                                @foreach ($temas as $tema)                                                        
+                                                    <span class="suggestion">{{ $tema->nombre }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="box-footer mt20">
                                 <button type="submit" class="btn btn-primary">CREAR</button>
@@ -88,5 +108,6 @@
     });
 
 </script>
+<script src="{{ asset('assets/js/multitemas.js') }}"></script>
 @stop
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::table('compendios', function (Blueprint $table) {
-            $table->string('urlLink')->nullable();
+            $table->string('temas')->nullable();
             // Agrega más atributos según sea necesario
         });
     }

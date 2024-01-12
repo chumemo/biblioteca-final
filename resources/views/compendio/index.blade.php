@@ -82,7 +82,8 @@
                         <tbody>
                             @foreach ($compendios as $compendio)
                                 <tr>
-                                    <td class="text-secondary">{{ $compendio->temaId->nombre ?? '' }}</td>
+                                    <!-- <td class="text-secondary">{{ $compendio->temaId->nombre ?? '' }}</td> -->
+                                    <td class="text-secondary">{{ $compendio->temas ?? '' }}</td>
                                     <td class="text-secondary">{{ $compendio->criterioId->nombre ?? '' }}</td>
                                     <td class="text-secondary">{{ $compendio->anio }}</td>
 

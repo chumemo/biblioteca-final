@@ -49,6 +49,24 @@
                                         <input type="file" accept=".doc, .docx, .ppt, .pptx, .xls, .xlsx, .pdf" name="urlDocumento" id="urlDocumento" class="form-control">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="item">
+                                        <input type="hidden" id="temas" name="temas" value="">
+                                        <label class="text-secondary">Temas</label>
+                                        
+                                        <div class="search-container">
+                                            <div id="selected-items"></div>            
+                                            <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                            <div class="suggestions">
+                                                @foreach ($temas as $tema)                                                        
+                                                    <span class="suggestion">{{ $tema->nombre }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                                 
                             </div>
                             <div class="box-footer mt20">
@@ -72,6 +90,6 @@
 @stop
 
 @section('js')
-
+<script src="{{ asset('assets/js/multitemas.js') }}"></script>
 @stop
 

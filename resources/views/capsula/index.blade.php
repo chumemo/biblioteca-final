@@ -31,7 +31,7 @@
 
                             <!-- <h6 class="limitedText text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}  </h6> -->
                             <h6 class=" text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}  </h6>
-                            <p class="text-secondary fs-xxsm text-decoration-none  ">{{ $capsula->fecha }}</p>
+                            <p class="text-secondary fs-xxsm text-decoration-none limitedText ">{{ $capsula->fecha }}</p>
                             <span id="url" hidden>{{ $capsula->url }}</span>
                             <p id="capsulaDescription" hidden>{{ $capsula->descripcion }}</p>
                         </div>

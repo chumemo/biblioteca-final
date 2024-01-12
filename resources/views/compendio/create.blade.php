@@ -108,7 +108,7 @@
 
                                     <div class="form-group d-flex flex-col justify-content-between mt-4 flex-wrap">
 
-                                        <div class="item">
+                                        <!-- <div class="item">
                                             <label class="text-secondary">Tema</label>
                                             <select name="tema" id="temaId" class="form-select">
                                                 <option value="0"></option>
@@ -117,6 +117,22 @@
                                                 @endforeach
 
                                             </select>
+
+                                        </div> -->
+
+                                        <div class="item">
+                                            <input type="hidden" id="temas" name="temas" value="">
+                                            <label class="text-secondary">Temas</label>
+                                            
+                                            <div class="search-container">
+                                                <div id="selected-items"></div>            
+                                                <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                                <div class="suggestions">
+                                                    @foreach ($temas as $tema)                                                        
+                                                        <span class="suggestion">{{ $tema->nombre }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
 
                                         </div>
 
@@ -128,6 +144,30 @@
                                         
 
                                     </div>
+
+                                    <!-- <div class="form-group d-flex flex-col justify-content-between mt-4 flex-wrap"> -->
+                                    <!-- <div class="form-group d-flex flex-col justify-content-between mt-4 flex-wrap">
+                                        
+                                        <div class="item">
+                                            <p>Seleccionados:</p>
+                                            <input type="text" id="temas" value="">
+                                            <br>
+                                            <label class="text-secondary">Temas</label>
+                                            
+                                            <div class="search-container">
+                                                <div id="selected-items"></div>            
+                                                <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                                <div class="suggestions">
+                                                    @foreach ($temas as $tema)                                                        
+                                                        <span class="suggestion">{{ $tema->nombre }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        
+
+                                    </div> -->
 
                                     <div class="box-footer mt20 ">
                                         <button type="submit" class="btn btn-primary ">CREAR</button>
@@ -148,6 +188,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <link rel="stylesheet" href=" {{ asset('assets/css/trix.css') }}">
     <link rel="stylesheet" href=" {{ asset('assets/css/styles.css') }}">
+
 @stop
 
 @section('js')
@@ -159,4 +200,7 @@
             trix.toolbarElement.querySelector(".trix-button-group--file-tools").style.display = "none";
         });
     </script>
+
+    <script src="{{ asset('assets/js/multitemas.js') }}"></script>
+
 @stop

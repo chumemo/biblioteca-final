@@ -101,6 +101,8 @@ class CompendioController extends Controller
         // Link
         $compendio->urlLink = $request->urlLink;
 
+        $compendio->temas = $request->temas;
+
         $compendio->save();
 
         return redirect()->route('compendio.admin');
@@ -184,6 +186,8 @@ class CompendioController extends Controller
 
         // Link
         $compendio->urlLink = $request->urlLink;
+
+        $compendio->temas = $request->temas;
 
         $compendio->save();
         return redirect()->route('compendio.admin');

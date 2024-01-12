@@ -49,6 +49,24 @@
                                         <input type="file" accept="image/jpeg, image/png" name="urlImagen" id="urlImagen" class="form-control" value="{{ $folleto->urlImagen }}">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="item">
+                                        <input type="hidden" id="temas" name="temas" value="{{ $folleto->temas }}">
+                                        <label class="text-secondary">Temas</label>
+                                        
+                                        <div class="search-container">
+                                            <div id="selected-items"></div>            
+                                            <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                            <div class="suggestions">
+                                                @foreach ($temas as $tema)                                                        
+                                                    <span class="suggestion">{{ $tema->nombre }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
                                 
                                 
 
@@ -85,5 +103,7 @@
     });
 
 </script>
+
+<script src="{{ asset('assets/js/multitemas.js') }}"></script>
 @stop
 

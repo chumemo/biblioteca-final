@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalogo;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Models\Tema;
 
 class CatalogoController extends Controller
 {
@@ -30,7 +31,8 @@ class CatalogoController extends Controller
      */
     public function create()
     {
-        return view("catalogo.create");
+        $temas = Tema::all();
+        return view("catalogo.create", compact("temas"));
     }
 
     /**
@@ -44,6 +46,8 @@ class CatalogoController extends Controller
         $catalogo->fecha = $request->fecha;
         $catalogo->estado = $request->estado;
         $catalogo->autorId = $request->user()->id;
+
+        $catalogo->temas = $request->temas;
 
         if ($request->hasFile("urlImagen")) {
             $file = $request->file("urlImagen");
@@ -103,7 +107,8 @@ class CatalogoController extends Controller
     public function edit(string $id)
     {
         $catalogo = Catalogo::findOrFail($id);
-        return view("catalogo.edit", compact("catalogo"));
+        $temas = Tema::all();
+        return view("catalogo.edit", compact("catalogo", "temas"));
     }
 
     /**
@@ -115,6 +120,8 @@ class CatalogoController extends Controller
         $catalogo->titulo = $request->titulo;
         $catalogo->fecha = $request->fecha;
         $catalogo->estado = $request->estado;
+
+        $catalogo->temas = $request->temas;
         
 
         if ($request->hasFile("urlImagen")) {

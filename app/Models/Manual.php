@@ -11,7 +11,7 @@ class Manual extends Model
 
     protected $fillable = [
 
-        "titulo","urlThumb","urlPDF"];
+        "titulo","urlThumb","urlPDF", "temas"];
 
         protected $title = "manuals";
 }

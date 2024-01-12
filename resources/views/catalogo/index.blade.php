@@ -31,14 +31,27 @@
                     <img src="{{ $_src }}" class="img-catalogo" alt="catalogo img">
                     <h6 class=" text-secondary mt-2 text-center titulo-catalogo"> {{ $catalogo->titulo }}</h6>
                     <ul class="list-group list-group-flush align-items-center gothamB">
-                        <li class="list-group-item bg-transparent">
+
+                        <!-- <li class="list-group-item bg-transparent">
                             <a href="{{ $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
                                 
                                     <button type="button" id="btnDescargar"
                                     class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3 ">DESCARGAR</button>
                                 
                             </a>
+                        </li>                         -->
+
+
+                        <li class="list-group-item bg-transparent">
+                            @if (!empty($catalogo->urlDocumento))
+                                <a href="{{ $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
+                                    <button type="button" id="btnDescargar" class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3">DESCARGAR</button>
+                                </a>
+                            @else
+                                <button type="button" id="btnDescargar" class="btn btn-outline-primary btn-block btn-sm rounded-pill px-3" disabled>DESCARGAR</button>
+                            @endif
                         </li>
+
                         
                         <!-- <li class="list-group-item  bg-transparent">
                             <a href="{{ route('catalogo.show',$catalogo)  }}">
@@ -49,13 +62,30 @@
                             </a>
                         </li> -->
 
-                        <li class="list-group-item  bg-transparent">
+                        
+
+                        <!-- <li class="list-group-item  bg-transparent">
                             <a href="{{ route('catalogo.show',['catalogo'=> $catalogo->id])  }}">
                                 <button type="button" id="btnVerPDF"
                                     class="btn btnCardManual btnVerManual btn-outline-primary btn-block btn-sm rounded-pill px-3">
                                     VER EN LÍNEA
                                 </button>
                             </a>
+                        </li> -->
+
+                        <li class="list-group-item bg-transparent">
+                            @if (pathinfo($catalogo->urlDocumento, PATHINFO_EXTENSION) === 'pdf')
+                                <a href="{{ route('catalogo.show',['catalogo'=> $catalogo->id]) }}">
+                                    <button type="button" id="btnVerPDF"
+                                        class="btn btnCardManual btnVerManual btn-outline-primary btn-block btn-sm rounded-pill px-3">
+                                        VER EN LÍNEA
+                                    </button>
+                                </a>
+                            @else
+                                <button type="button" id="btnVerPDF" class="btn btnCardManual btnVerManual btn-outline-primary btn-block btn-sm rounded-pill px-3" disabled>
+                                    VER EN LÍNEA
+                                </button>
+                            @endif
                         </li>
 
                     </ul>

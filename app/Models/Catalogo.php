@@ -10,7 +10,7 @@ class Catalogo extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "titulo","urlImagen","urlDocumento", "nombreArchivo"
+        "titulo","urlImagen","urlDocumento", "nombreArchivo", "temas"
     ];
 
         protected $title = "catalogos";

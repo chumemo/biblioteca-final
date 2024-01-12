@@ -54,7 +54,7 @@
                                                 value="{{ $formato->urlDocumento }}">
                                         </div>
 
-                                        <div class="item">
+                                        <!-- <div class="item">
                                             <label class="text-secondary">Tema</label>
                                             <select name="tema" id="idTemaSelect" class="form-control item">
                                                 <option value="" @if ($formato->temaId == "")
@@ -68,6 +68,22 @@
                                                     <option value="0">No hay temas registrados.</option>
                                                 @endforelse
                                             </select>
+                                        </div> -->
+
+                                        <div class="item">
+                                            <input type="hidden" id="temas" name="temas" value="{{$formato->temas}}">
+                                            <label class="text-secondary">Temas</label>
+                                            
+                                            <div class="search-container">
+                                                <div id="selected-items"></div>            
+                                                <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                                <div class="suggestions">
+                                                    @foreach ($temas as $tema)                                                        
+                                                        <span class="suggestion">{{ $tema->nombre }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -119,4 +135,6 @@
             trix.toolbarElement.querySelector(".trix-button-group--file-tools").style.display = "none";
         });
     </script>
+
+<script src="{{ asset('assets/js/multitemas.js') }}"></script>
 @stop

@@ -9,6 +9,7 @@ use Intervention\Image\Facades\Image;
 use App\Models\Capsula;
 use App\Models\Usuario;
 
+use App\Models\Tema;
 
 class CapsulaController extends Controller
 {
@@ -29,7 +30,8 @@ class CapsulaController extends Controller
 
     public function create()
     {
-        return view('capsula.create');
+        $temas = Tema::all();
+        return view('capsula.create', compact('temas'));
     }
 
     public function show($id)
@@ -44,7 +46,8 @@ class CapsulaController extends Controller
     public function edit($id)
     {
         $capsula = Capsula::find($id);
-        return view('capsula.edit', compact('capsula'));
+        $temas = Tema::all();
+        return view('capsula.edit', compact('capsula', 'temas'));
     }
 
     public function destroy($id)
@@ -61,6 +64,7 @@ class CapsulaController extends Controller
         $capsula->titulo = $request->titulo;
         $capsula->descripcion = $request->descripcion;
         
+        $capsula->temas = $request->temas;
         
         $iframeCode = $request->url;
         $srcStart = strpos($iframeCode, 'src="');
@@ -146,6 +150,8 @@ class CapsulaController extends Controller
             
             $capsula->urlImagen = "storage/capsulas/" . $name;
         }
+
+        $capsula->temas = $request->temas;
 
         $capsula->save();
         return redirect()->route('capsula.admin');

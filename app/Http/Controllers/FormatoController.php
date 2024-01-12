@@ -70,6 +70,8 @@ class FormatoController extends Controller
         $formato->autorId = $request->user()->id;
         $formato->autoridadId = $request->autoridad;
         $formato->temaId = $request->tema;
+
+        $formato->temas = $request->temas;
         
         if ($request->hasFile("urlArchivo")) {
             $file = $request->file("urlArchivo");
@@ -121,6 +123,8 @@ class FormatoController extends Controller
         $formato->estado = $request->estado;
         $formato->autoridadId = $request->autoridad;
         $formato->temaId = $request->tema;
+
+        $formato->temas = $request->temas;
         
         
         if ($request->hasFile("urlArchivo")) {

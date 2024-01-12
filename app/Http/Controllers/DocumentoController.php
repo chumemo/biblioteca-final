@@ -89,6 +89,9 @@ class DocumentoController extends Controller
         $documento->autoridadId = $request->autoridad;
         $documento->temaId = $request->tema;
         
+
+        $documento->temas = $request->temas;
+
         if ($request->hasFile("urlImagen")) {
             $file = $request->file("urlImagen");
 
@@ -136,6 +139,8 @@ class DocumentoController extends Controller
         $documento->autorId = $request->user()->id;
         $documento->autoridadId = $request->autoridad;
         $documento->temaId = $request->tema;
+
+        $documento->temas = $request->temas;
         
         if ($request->hasFile("urlImagen") && $request->file("urlImagen") != null && $request->file("urlImagen") != "") {
             $file = $request->file("urlImagen");

@@ -13,7 +13,7 @@ class Documento extends Model
     use HasFactory;
 
     protected $fillable = [
-        "titulo","tema","acuerdo","sentencia","sintesis","urlimg","urldoc"
+        "titulo","tema","acuerdo","sentencia","sintesis","urlimg","urldoc","temas"
     ];
     
     protected $title = "documentos";

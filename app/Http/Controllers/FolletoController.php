@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Folleto;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Models\Tema;
 
 class FolletoController extends Controller
 {
@@ -32,8 +33,9 @@ class FolletoController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view("folleto.create");
+    {   
+        $temas = Tema::all();
+        return view("folleto.create",compact("temas"));
     }
 
     /**
@@ -47,6 +49,8 @@ class FolletoController extends Controller
         $folleto->fecha = $request->fecha;
         $folleto->estado = $request->estado;
         $folleto->autorId = $request->user()->id;
+
+        $folleto->temas = $request->temas;
         
         if ($request->hasFile("urlImagen")) {
             $file = $request->file("urlImagen");
@@ -92,7 +96,8 @@ class FolletoController extends Controller
     public function edit(string $id)
     {
         $folleto = Folleto::find($id);
-        return view('folleto.edit', compact('folleto'));
+        $temas = Tema::all();
+        return view('folleto.edit', compact('folleto','temas'));
     }
 
     /**
@@ -104,6 +109,8 @@ class FolletoController extends Controller
         $folleto->titulo = $request->titulo;
         $folleto->fecha = $request->fecha;
         $folleto->estado = $request->estado;
+
+        $folleto->temas = $request->temas;
         
         if ($request->hasFile("urlImagen")) {
             $file = $request->file("urlImagen");

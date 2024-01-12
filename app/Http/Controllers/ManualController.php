@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use App\Models\Manual;
+use App\Models\Tema;
 
 class ManualController extends Controller
 {
@@ -21,14 +22,17 @@ class ManualController extends Controller
     {
         $manuales = Manual::orderByDesc('created_at')
             ->paginate(10);
-        return view("manual.admin", compact("manuales"));
+        $temas = Tema::all();
+        return view("manual.admin", compact("manuales","temas"));
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view("manual.create");
+        $temas = Tema::all();
+
+        return view("manual.create",compact("temas"));
     }
 
     /**
@@ -41,6 +45,8 @@ class ManualController extends Controller
         $manual->fecha = $request->fecha;
         $manual->estado = $request->estado;
         $manual->autorId = $request->user()->id;
+
+        $manual->temas = $request->temas;
         
         if ($request->hasFile("urlImagen")) {
             $file = $request->file("urlImagen");
@@ -99,7 +105,8 @@ class ManualController extends Controller
     public function edit(string $id)
     {
         $manual = Manual::find($id);
-        return view("manual.edit", compact("manual"));
+        $temas = Tema::all();
+        return view("manual.edit", compact("manual","temas"));
     }
 
     /**
@@ -111,6 +118,8 @@ class ManualController extends Controller
         $manual->titulo = $request->titulo;
         $manual->fecha = $request->fecha;
         $manual->estado = $request->estado;
+
+        $manual->temas = $request->temas;
         
         if ($request->hasFile("urlImagen")) {
             $file = $request->file("urlImagen");

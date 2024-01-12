@@ -59,7 +59,7 @@
                                             <input type="file" accept="application/pdf" name="urlDocumento" id="urlDocumento"
                                                 class="form-control">
                                         </div>
-                                        <div class="item">
+                                        <!-- <div class="item">
                                             <label class="text-secondary">Tema</label>
                                             <select name="tema" id="temaSelect" class="form-control">
                                                 <option value="">Seleccionar tema.</option>
@@ -71,6 +71,22 @@
                                                     <option value="">No hay temas.</option>
                                                 @endforelse
                                             </select>
+                                        </div> -->
+
+                                        <div class="item">
+                                            <input type="hidden" id="temas" name="temas" value="{{ $documento->temas }}">
+                                            <label class="text-secondary">Temas</label>
+                                            
+                                            <div class="search-container">
+                                                <div id="selected-items"></div>            
+                                                <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                                <div class="suggestions">
+                                                    @foreach ($temas as $tema)                                                        
+                                                        <span class="suggestion">{{ $tema->nombre }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -121,5 +137,7 @@
     });
 
 </script>
+
+<script src="{{ asset('assets/js/multitemas.js') }}"></script>
 @stop
 

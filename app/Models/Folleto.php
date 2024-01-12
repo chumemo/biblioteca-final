@@ -10,7 +10,7 @@ class Folleto extends Model
     use HasFactory;
     protected $fillable = [
 
-        "titulo","url"];
+        "titulo","url","temas"];
 
         protected $title = "folletos";
 

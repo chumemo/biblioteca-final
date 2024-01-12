@@ -14,7 +14,7 @@ class Formato extends Model
     use HasFactory;
     
     protected $fillable = [
-        "titulo","urlImagen","urlDocumento"
+        "titulo","urlImagen","urlDocumento","temas"
     ];
 
         protected $title = "formatos";

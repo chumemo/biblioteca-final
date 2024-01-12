@@ -114,7 +114,7 @@
 
                                     <div class="form-group d-flex flex-col justify-content-between mt-4 flex-wrap">
 
-                                        <div class="item">
+                                        <!-- <div class="item">
                                             <label class="text-secondary">Tema</label>
                                             <select name="tema" id="temaId" class="form-select">
                                                 <option value="0"></option>
@@ -123,6 +123,22 @@
                                                 @endforeach
 
                                             </select>
+
+                                        </div> -->
+
+                                        <div class="item">
+                                            <input type="hidden" id="temas" name="temas" value="{{ $compendio->temas }}">
+                                            <label class="text-secondary">Temas</label>
+                                            
+                                            <div class="search-container">
+                                                <div id="selected-items"></div>            
+                                                <input type="text" class="search-box" id="search-box" placeholder="Buscar temas" autocomplete="off" />
+                                                <div class="suggestions">
+                                                    @foreach ($temas as $tema)                                                        
+                                                        <span class="suggestion">{{ $tema->nombre }}</span>
+                                                    @endforeach
+                                                </div>
+                                            </div>
 
                                         </div>
 
@@ -165,4 +181,8 @@
             trix.toolbarElement.querySelector(".trix-button-group--file-tools").style.display = "none";
         });
     </script>
+
+
+<script src="{{ asset('assets/js/multitemas.js') }}"></script>
+
 @stop
