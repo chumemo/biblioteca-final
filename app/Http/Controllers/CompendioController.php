@@ -98,6 +98,9 @@ class CompendioController extends Controller
             $compendio->nombreArchivo = $name;
         }
 
+        // Link
+        $compendio->urlLink = $request->urlLink;
+
         $compendio->save();
 
         return redirect()->route('compendio.admin');
@@ -178,6 +181,9 @@ class CompendioController extends Controller
 
             $compendio->urlDocumento = "storage/compendios/" . $name;
         }
+
+        // Link
+        $compendio->urlLink = $request->urlLink;
 
         $compendio->save();
         return redirect()->route('compendio.admin');

@@ -119,6 +119,12 @@
                                             </select>
 
                                         </div>
+
+                                        <div class="item-archivo">
+                                            <label class="text-secondary">Url Enlace</label>
+                                            <input type="text" name='urlLink' class="form-control"
+                                                placeholder="Url Enlace" maxlength="200" >
+                                        </div>
                                         
 
                                     </div>
