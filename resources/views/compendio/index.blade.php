@@ -19,7 +19,7 @@
                                 aria-label="Selecciona un tema">
                                 <option value="" disabled selected>Tema</option>
                                 @foreach ($temas as $tema)
-                                    <option value="{{ $tema->id }}" >{{ $tema->nombre }}</option>
+                                    <option value="{{ $tema->nombre }}" >{{ $tema->nombre }}</option>
                                 @endforeach
                             </select>
                         </div>

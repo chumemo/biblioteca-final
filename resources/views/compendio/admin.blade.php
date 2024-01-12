@@ -66,13 +66,17 @@
                             <a href="" data-bs-toggle="modal" data-bs-target="#modal" id="link" >Ver más</a>
 
                         </td>
-                        <td>
+                        
+                        <!-- <td>
                             @if ($compendio->tema != null && $temas != null)
                                  {{ $temas->find($compendio->tema)->nombre }}                                                                 
                             @else
                                 --
                             @endif
-                        </td>
+                        </td> -->
+
+                        <td>{{ $compendio->temas ?? '-' }}</td>
+
                         <td>
                             @if ($compendio->urlDocumento == null)
                                 <p class="text-danger">No hay documento</p>

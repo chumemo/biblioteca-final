@@ -24,7 +24,8 @@ class FiltroCompendioController extends Controller
         $query = Compendio::query();
 
         if ($tema !== null) {
-            $query->where('tema', $tema);
+            // $query->where('tema', $tema);
+            $query->where('temas', 'like', "%$tema%");            
         }
 
         if ($autoridad !== null) {
