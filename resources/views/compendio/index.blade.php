@@ -9,7 +9,6 @@
             <div class="col-md-12">
                 <div class="d-flex justify-content-center align-items-center">
 
-
                     <form action="{{ route('compendio.filtrar') }}" method="POST" class="d-flex flex-row">
                         @method('POST')
                         @csrf
@@ -17,9 +16,14 @@
                         <div class="mb-3 me-3">
                             <select id="tema" class="form-select form-select-sm border-gray text-secundary" name="tema"
                                 aria-label="Selecciona un tema">
-                                <option value="" disabled selected>Tema</option>
+                                <option value=""  selected>Tema</option>
                                 @foreach ($temas as $tema)
-                                    <option value="{{ $tema->nombre }}" >{{ $tema->nombre }}</option>
+                                    <!-- <option value="{{ $tema->nombre }}" >{{ $tema->nombre }}</option> -->
+                                    @if(Session::get('tema') == $tema->nombre)
+                                        <option value="{{ $tema->nombre }}" selected>{{ $tema->nombre }}</option>
+                                    @else
+                                        <option value="{{ $tema->nombre }}" >{{ $tema->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -27,9 +31,14 @@
                         <div class="mb-3 me-3">
                             <select id="criterio" class="form-select form-select-sm border-gray " name="criterio"
                                 aria-label="Selecciona un criterio">
-                                <option value="" disabled selected>Criterio</option>
+                                <option value=""  selected>Criterio</option>
                                 @foreach ($criterios as $criterio)
-                                    <option value="{{ $criterio->id }}" > {{ $criterio->nombre }}</option>
+                                    <!-- <option value="{{ $criterio->id }}" > {{ $criterio->nombre }}</option> -->
+                                    @if(Session::get('criterio') == $criterio->id)
+                                        <option value="{{ $criterio->id }}" selected> {{ $criterio->nombre }}</option>
+                                    @else
+                                        <option value="{{ $criterio->id }}" > {{ $criterio->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -37,7 +46,7 @@
                         <div class="mb-3 me-3">
                             <select id="anio" name="anio" class="form-select form-select-sm border-gray "
                                 aria-label="Selecciona un año">
-                                <option value="" disabled selected>Año</option>
+                                <option value=""  selected>Año</option>
                                 @php
                                     $currentYear = date('Y');
                                     $startYear = $currentYear;
@@ -45,7 +54,14 @@
                                 @endphp
 
                                 @for ($year = $startYear; $year >= $endYear; $year--)
-                                    <option value="{{ $year }}">{{ $year }}</option>
+                                    
+                                    <!-- <option value="{{ $year }}">{{ $year }}</option> -->
+                                    @if(Session::get('anio') == $year)
+                                        <option value="{{ $year }}" selected>{{ $year }}</option>
+                                    @else
+                                        <option value="{{ $year }}">{{ $year }}</option>
+                                    @endif
+
                                 @endfor
                             </select>
                         </div>
@@ -54,9 +70,14 @@
 
                             <select id="autoridad" name="autoridad" class="form-select form-select-sm border-gray "
                                 aria-label="Selecciona una autoridad">
-                                <option value="" disabled selected>Autoridad</option>
+                                <option value=""  selected>Autoridad</option>
                                 @foreach ($autoridades as $autoridad)
-                                    <option value="{{ $autoridad->id }}">{{ $autoridad->nombre }}</option>
+                                    <!-- <option value="{{ $autoridad->id }}">{{ $autoridad->nombre }}</option> -->
+                                    @if(Session::get('autoridad') == $autoridad->id)
+                                        <option value="{{ $autoridad->id }}" selected>{{ $autoridad->nombre }}</option>
+                                    @else
+                                        <option value="{{ $autoridad->id }}">{{ $autoridad->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

@@ -11,6 +11,8 @@ use App\Models\Tema;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
+use Illuminate\Support\Facades\Session;
+
 class CompendioController extends Controller
 {
     /**
@@ -19,12 +21,18 @@ class CompendioController extends Controller
     
     public function index(Request $request)
     {
+        session::forget('tema');
+        session::forget('autoridad');
+        session::forget('criterio');
+        session::forget('anio');
+        
+
         $criterios = Criterio::all();
         $autoridades = Autoridad::all();
         $temas = Tema::all();
         $compendios = Compendio::where('estado', 1)
             ->orderByDesc('anio')
-            ->paginate(20);
+            ->paginate(4);
         
         return view("compendio.index", compact("compendios", "criterios", "autoridades" , "temas"));
     }

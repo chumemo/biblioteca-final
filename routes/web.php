@@ -25,10 +25,25 @@ Route::middleware([
         Route::get('/documento/{documento}', [App\Http\Controllers\DocumentoController::class, 'show'])->name('documento.show')->middleware('log.show.route');;
         Route::get('/catalogo', [App\Http\Controllers\CatalogoController::class, 'index'])->name('catalogo.index');
         Route::get('/catalogo/{catalogo}', [App\Http\Controllers\CatalogoController::class, 'show'])->name('catalogo.show')->middleware('log.show.route');;
+      
         Route::get('/compendio', [App\Http\Controllers\CompendioController::class, 'index'])->name('compendio.index');
+      
         Route::get('/compendio/{compendio}', [App\Http\Controllers\CompendioController::class, 'show'])->name('compendio.show')->middleware('log.show.route');;
-        Route::post('/compendio/filtrar', [App\Http\Controllers\FiltroCompendioController::class, 'filtrarDatos'])->name('compendio.filtrar');
+        
+        // Route::post('/compendio/filtrar', [App\Http\Controllers\FiltroCompendioController::class, 'filtrarDatos'])->name('compendio.filtrar');
+    
+        Route::get('/compendio-filtro', [App\Http\Controllers\FiltroCompendioController::class, 'index'])->name('compendio-filtro.index');
+        Route::post('/compendio-filtro', [App\Http\Controllers\FiltroCompendioController::class, 'filtrarDatos'])->name('compendio.filtrar');
+
+
+
+        // Route::post('/busqueda', [App\Http\Controllers\BusquedaController::class, 'index'])->name('busqueda.index');
+
         Route::post('/busqueda', [App\Http\Controllers\BusquedaController::class, 'index'])->name('busqueda.index');
+        Route::get('/busqueda', [App\Http\Controllers\BusquedaController::class, 'index'])->name('busqueda.index');
+        
+        // Route::match(['get', 'post'], '/busqueda', [App\Http\Controllers\BusquedaController::class, 'index'])->name('busqueda.index');
+
         
         //Estadistica
         Route::post('/registrar-descarga/{tipoDescarga}/{archivoId}', [ App\Http\Controllers\DescargasController::class,'registrarDescarga' ])->name('registrar.descarga');

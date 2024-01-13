@@ -73,7 +73,8 @@
                             </a>
                         </li> -->
 
-                        <li class="list-group-item bg-transparent">
+                        <!-- Qutamos ver en Linea -->
+                        <!-- <li class="list-group-item bg-transparent">
                             @if (pathinfo($catalogo->urlDocumento, PATHINFO_EXTENSION) === 'pdf')
                                 <a href="{{ route('catalogo.show',['catalogo'=> $catalogo->id]) }}">
                                     <button type="button" id="btnVerPDF"
@@ -86,7 +87,7 @@
                                     VER EN LÍNEA
                                 </button>
                             @endif
-                        </li>
+                        </li> -->
 
                     </ul>
                 </div>

@@ -80,7 +80,7 @@
                     @method('POST')
                     @csrf
                     <div class="flex flex-row items-center text-center rounded-pill  overflow-hidden border-none mt-2 bg-white h-8 ">
-                        <input type="text" name="query" id="search-box" placeholder="Buscar por temas" autocomplete="off"
+                        <input type="text" name="query" id="search-box" placeholder="Buscar por temas/tìtulo" autocomplete="off"
                         class="w-full h-full placeholder-gray-400 border-none" />
                         <img id="buscarIcon" src="{{ asset('assets/img/Buscar.png') }}" alt="Logo usuario" class="h-8 border-none"/>                        
                     </div>

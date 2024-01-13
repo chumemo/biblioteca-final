@@ -12,6 +12,7 @@ class ManualController extends Controller
 
     public function index()
     {
+        
         $manuales = Manual::where('estado', '1')
             ->orderBy('fecha')
             ->paginate(12);

@@ -27,11 +27,11 @@
 
                                 $youtubeThumbnailUrl =  "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg";
                             ?>
-                            <img src="{{ $youtubeThumbnailUrl }}" class="" alt="Capsula thumbnail" width="200px" height="200px">
+                            <img src="{{ $youtubeThumbnailUrl }}" class="" alt="Capsula thumbnail" width="250px" height="200px">
 
                             <!-- <h6 class="limitedText text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}  </h6> -->
-                            <h6 class=" text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}  </h6>
-                            <p class="text-secondary fs-xxsm text-decoration-none limitedText ">{{ $capsula->fecha }}</p>
+                            <h6 class="text-align-left text-secondary mt-2 mb-0 "> {{ $capsula->titulo }}  </h6>
+                            <p class="text-align-left text-secondary fs-xxsm text-decoration-none  ">{{ $capsula->fecha }}</p>
                             <span id="url" hidden>{{ $capsula->url }}</span>
                             <p id="capsulaDescription" hidden>{{ $capsula->descripcion }}</p>
                         </div>
