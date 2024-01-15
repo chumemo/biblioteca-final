@@ -55,7 +55,7 @@ class FiltroCompendioController extends Controller
         
         $query->where('estado', '1');
         
-        $compendios = $query->paginate(4);
+        $compendios = $query->paginate(20);
         
         $criterios = Criterio::all();
         $autoridades = Autoridad::all();
@@ -93,7 +93,7 @@ class FiltroCompendioController extends Controller
         
         $query->where('estado', '1');
         
-        $compendios = $query->paginate(4);
+        $compendios = $query->paginate(20);
         
         // asignar a variable global compendiosGlobal el valor de $compendios
         $this->compendiosGlobal = $compendios;      

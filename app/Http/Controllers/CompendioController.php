@@ -25,14 +25,14 @@ class CompendioController extends Controller
         session::forget('autoridad');
         session::forget('criterio');
         session::forget('anio');
-        
+
 
         $criterios = Criterio::all();
         $autoridades = Autoridad::all();
         $temas = Tema::all();
         $compendios = Compendio::where('estado', 1)
             ->orderByDesc('anio')
-            ->paginate(4);
+            ->paginate(20);
         
         return view("compendio.index", compact("compendios", "criterios", "autoridades" , "temas"));
     }
