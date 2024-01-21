@@ -94,7 +94,7 @@
         </div> --}}
 
         <div class="card text-bg-dark col-lg-4 border-0 rounded-0 p-0" style="max-height: 300px; max-width: 350px">
-            <a href="{{ route('folleto.index') }}">
+            <a href="{{ route('formato.index') }}">
                 <img src="{{ asset('assets/img/Mosaico-Formatos.png') }}" class="card-img img-fluid rounded-0 " alt="Formatos" style="max-width: 350px">
                 <div class="card-img-overlay d-flex flex-column justify-content-end cardEffect">
                     <div class="d-flex align-items-end">

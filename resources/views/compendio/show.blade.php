@@ -29,9 +29,14 @@
 
             </div>
             <hr>
-            <div class="d-flex flex-column align-items-center ">
-                <iframe src="{{ asset($compendio->urlDocumento) }}" frameborder="0" width="80%" height="900px"></iframe>
-            </div>
+            @if($compendio->urlDocumento)
+                <div class="d-flex flex-column align-items-center ">
+                    <iframe src="{{ asset($compendio->urlDocumento) }}" frameborder="0" width="80%" height="900px"></iframe>
+                </div>
+            @else
+                <h3>No hay PDF</h3>
+            @endif
+            
         </div>
 
         <script src="{{ asset('assets/js/descargasHandler.js')}}" type="module"></script>  

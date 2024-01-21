@@ -277,7 +277,7 @@
         })
     </script>
 
-<script>
+    <script>
         // Mostrar sugerencias cuando el input tenga foco
         var searchBox = document.getElementById('search-box');
         var suggestionsContainer = document.querySelector('.suggestions');
