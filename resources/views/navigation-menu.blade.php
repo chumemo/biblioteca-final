@@ -278,43 +278,43 @@
     </script>
 
     <script>
-        // Mostrar sugerencias cuando el input tenga foco
-        var searchBox = document.getElementById('search-box');
-        var suggestionsContainer = document.querySelector('.suggestions');
+        // // Mostrar sugerencias cuando el input tenga foco
+        // var searchBox = document.getElementById('search-box');
+        // var suggestionsContainer = document.querySelector('.suggestions');
 
-        searchBox.addEventListener('focus', function() {
-            suggestionsContainer.style.display = 'block';
-        });
+        // searchBox.addEventListener('focus', function() {
+        //     suggestionsContainer.style.display = 'block';
+        // });
 
-        searchBox.addEventListener('input', function() {
-            var input = this.value.toLowerCase();
-            var suggestions = document.querySelectorAll('.suggestion');
+        // searchBox.addEventListener('input', function() {
+        //     var input = this.value.toLowerCase();
+        //     var suggestions = document.querySelectorAll('.suggestion');
             
-            suggestions.forEach(function(suggestion) {
-                var text = suggestion.textContent.toLowerCase();
-                if(text.includes(input)) {
-                    suggestion.style.display = 'inline-block';
-                } else {
-                    suggestion.style.display = 'none';
-                }
-            });
-        });
+        //     suggestions.forEach(function(suggestion) {
+        //         var text = suggestion.textContent.toLowerCase();
+        //         if(text.includes(input)) {
+        //             suggestion.style.display = 'inline-block';
+        //         } else {
+        //             suggestion.style.display = 'none';
+        //         }
+        //     });
+        // });
 
-        // Asignar valor al input y ocultar sugerencias al hacer clic en una sugerencia
-        suggestionsContainer.addEventListener('click', function(e) {
-            if (e.target.classList.contains('suggestion')) {
-                searchBox.value = e.target.textContent;
-                suggestionsContainer.style.display = 'none';
-                form.submit();
-            }
-        });
+        // // Asignar valor al input y ocultar sugerencias al hacer clic en una sugerencia
+        // suggestionsContainer.addEventListener('click', function(e) {
+        //     if (e.target.classList.contains('suggestion')) {
+        //         searchBox.value = e.target.textContent;
+        //         suggestionsContainer.style.display = 'none';
+        //         form.submit();
+        //     }
+        // });
 
-        // Opcional: Ocultar sugerencias cuando se hace clic fuera del input
-        document.addEventListener('click', function(e) {
-            if (!searchBox.contains(e.target) && !suggestionsContainer.contains(e.target)) {
-                suggestionsContainer.style.display = 'none';
-            }
-        });
+        // // Opcional: Ocultar sugerencias cuando se hace clic fuera del input
+        // document.addEventListener('click', function(e) {
+        //     if (!searchBox.contains(e.target) && !suggestionsContainer.contains(e.target)) {
+        //         suggestionsContainer.style.display = 'none';
+        //     }
+        // });
     </script>
 
 </nav>

@@ -23,17 +23,23 @@
             <div class="d-flex flex-row justify-content-between mb-2">
                 <h3 class="mb-2">{{ $compendio->titulo }}</h3>
 
-                <a href="{{ "../" . $compendio->urlDocumento }}" data-id="{{ $compendio->id }}" data-tipo="compendio" download>
-                    <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >DESCARGAR</button>
-                </a>
+                @if($compendio->urlDocumento && pathinfo($compendio->urlDocumento, PATHINFO_EXTENSION) !== 'pdf')
+                    <a href="{{ "../" . $compendio->urlDocumento }}" data-id="{{ $compendio->id }}" data-tipo="compendio" download>
+                        <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >DESCARGAR</button>
+                    </a>
+                @elseif($compendio->urlLink)
+                    <a href="{{$compendio->urlLink}}" target="_blank">
+                        <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >IR A ENLACE</button>
+                    </a>
+                @endif
 
             </div>
-            <hr>
-            @if($compendio->urlDocumento)
+            <hr>            
+            @if($compendio->urlDocumento && pathinfo($compendio->urlDocumento, PATHINFO_EXTENSION) === 'pdf')
                 <div class="d-flex flex-column align-items-center ">
                     <iframe src="{{ asset($compendio->urlDocumento) }}" frameborder="0" width="80%" height="900px"></iframe>
                 </div>
-            @else
+            @elseif(!$compendio->urlLink && !$compendio->urlDocumento)
                 <h3>No hay PDF</h3>
             @endif
             

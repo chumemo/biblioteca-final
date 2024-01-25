@@ -21,15 +21,35 @@
     <div class="container">
         <div class="d-flex flex-row justify-content-between mb-2 ms-5">
             <h4 class="fs-5">{{ $manual->titulo }}</h4>
-            <a href="{{ asset($manual->urlDocumento) }}" data-id="{{ $manual->id }}" data-tipo="manual" download>
+            
+            <!-- <a href="{{ asset($manual->urlDocumento) }}" data-id="{{ $manual->id }}" data-tipo="manual" download>
                 <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm">DESCARGAR</button>
-            </a>
+            </a> -->
+
+            @if($manual->urlDocumento && pathinfo($manual->urlDocumento, PATHINFO_EXTENSION) !== 'pdf')
+                <a href="{{ "../" . $manual->urlDocumento }}" data-id="{{ $manual->id }}" data-tipo="compendio" download>
+                    <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >DESCARGAR</button>
+                </a>
+            @elseif($manual->urlLink)
+                <a href="{{$manual->urlLink}}" target="_blank">
+                    <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >IR A ENLACE</button>
+                </a>
+            @endif
+
         </div>
         <hr>
-        <div class="d-flex flex-column align-items-center mt-4">
-            
+
+        <!-- <div class="d-flex flex-column align-items-center mt-4">            
             <iframe src="{{ asset($manual->urlDocumento) }}" frameborder="0" width="80%" height="900px"></iframe>
-        </div>
+        </div> -->
+        @if($manual->urlDocumento && pathinfo($manual->urlDocumento, PATHINFO_EXTENSION) === 'pdf')
+            <div class="d-flex flex-column align-items-center ">
+                <iframe src="{{ asset($manual->urlDocumento) }}" frameborder="0" width="80%" height="900px"></iframe>
+            </div>
+        @elseif(!$manual->urlLink && !$manual->urlDocumento)
+            <h3>No hay PDF</h3>
+        @endif
+
     </div>
     <script src="{{ asset('assets/js/descargasHandler.js')}}" type="module"></script>     
 @endsection

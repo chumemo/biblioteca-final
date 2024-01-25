@@ -35,14 +35,34 @@
         <div class="container">
             <div class="d-flex flex-row justify-content-between mb-2 ms-5">
                 <h4 class="fs-5">{{ $catalogo->titulo }}</h4>
-                <a href="{{ asset($catalogo->urlDocumento) }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
+                <!-- <a href="{{ asset($catalogo->urlDocumento) }}" data-id="{{ $catalogo->id }}" data-tipo="catalogo" download>
                     <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >DESCARGAR</button>
-                </a>
+                </a> -->
+
+                @if($catalogo->urlDocumento && pathinfo($catalogo->urlDocumento, PATHINFO_EXTENSION) !== 'pdf')
+                    <a href="{{ "../" . $catalogo->urlDocumento }}" data-id="{{ $catalogo->id }}" data-tipo="compendio" download>
+                        <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >DESCARGAR</button>
+                    </a>
+                @elseif($catalogo->urlLink)
+                    <a href="{{$catalogo->urlLink}}" target="_blank">
+                        <button id="btnDescargar" class="btn btn-sm btn-warning gothamB text-white rounded-pill btn-xxsm" >IR A ENLACE</button>
+                    </a>
+                @endif
+
             </div>
             <hr>
-            <div class="d-flex flex-column align-items-center ">
+            <!-- <div class="d-flex flex-column align-items-center ">
                 <iframe src="{{ "../" . $catalogo->urlDocumento }}" frameborder="0" width="80%" height="900px"></iframe>
-            </div>
+            </div> -->
+
+            @if($catalogo->urlDocumento && pathinfo($catalogo->urlDocumento, PATHINFO_EXTENSION) === 'pdf')
+                <div class="d-flex flex-column align-items-center ">
+                    <iframe src="{{ asset($catalogo->urlDocumento) }}" frameborder="0" width="80%" height="900px"></iframe>
+                </div>
+            @elseif(!$catalogo->urlLink && !$catalogo->urlDocumento)
+                <h3>No hay PDF</h3>
+            @endif
+
         </div>
         
         <script src="{{ asset('assets/js/descargasHandler.js')}}" type="module"></script>  

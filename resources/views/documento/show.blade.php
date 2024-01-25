@@ -43,10 +43,18 @@
                     <tr>
                         <th>Enlace</th>
                         <td>
-                            <a href="{{ asset($documento->urlDocumento); }}" data-id="{{ $documento->id }}" data-tipo="documento" download>
+                            <!-- <a href="{{ asset($documento->urlDocumento); }}" data-id="{{ $documento->id }}" data-tipo="documento" download>
                                 <button id="btnDescargar" type="button"
                                     class="btn btn-warning text-morado hover:text-white btn-block btn-sm rounded-pill px-3">DESCARGAR</button>
-                            </a>
+                            </a> -->
+
+                            @if($documento->urlDocumento)
+                                <a href="{{ asset($documento->urlDocumento); }}" data-id="{{ $documento->id }}" data-tipo="formato" download>
+                                    <button id="btnDescargar" type="button"
+                                        class="btn btn-warning text-morado hover:text-white btn-block btn-sm rounded-pill px-3">DESCARGAR</button>
+                                </a>
+                            @endif
+
                         </td>
                     </tr>
                 </tbody>
