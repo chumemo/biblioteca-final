@@ -130,8 +130,9 @@ class CapsulaController extends Controller
             if ($srcEnd !== false) {
             $url = substr($iframeCode, $srcStart, $srcEnd - $srcStart);
             } 
-        }
-        $capsula->url = $url;
+
+            $capsula->url = $url;
+        }        
 
         $capsula->fecha = $request->fecha;
         $capsula->estado = $request->estado;
