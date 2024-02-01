@@ -11,7 +11,7 @@
     <div class="w-100 bg-admin-card-title p-1">
         <a href="{{ route('criterio.create') }}" class="text-white text-decoration-none font-gothamBold "> 
             +
-            NUEVA CRITERIO
+            NUEVO CRITERIO
         </a>
     </div>
     <hr>

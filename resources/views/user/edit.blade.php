@@ -60,8 +60,12 @@
                                                 <label class="text-secondary">Rol</label>
                                                 <select name="rolSelect" id="rolSelect" class="form-control item">
                                                     @foreach ($roles as $rol)
-                                                        <option value="{{ $rol->id }}"
+                                                        <!-- <option value="{{ $rol->id }}"
                                                             {{ $usuario->hasRole($rol->name) ? 'selected' : '' }}>
+                                                            {{ $rol->name }}
+                                                        </option> -->
+                                                        <option value="{{ $rol->id }}"
+                                                            {{ $usuario->rol == $rol->id ? 'selected' : '' }}>
                                                             {{ $rol->name }}
                                                         </option>
                                                     @endforeach

@@ -82,7 +82,10 @@
                             </select>
                         </div>
 
-                        <button class="btn btn-outline-primary border-gray btn-xsm" type="submit"><label style="color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;">FILTRAR</label></button>
+                        <button class="btn btn-outline-primary border-gray btn-xsm" type="submit">
+                            <!-- <label style="color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;">FILTRAR</label> -->
+                            FILTRAR
+                        </button>
                     </form>
                 </div>
 

@@ -87,12 +87,29 @@ class UsuarioController extends Controller
     public function update(Request $request, string $id)
     {
         $user = User::find($id);
-        $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'rol' => $request->input('rolSelect'),
-        ]);
+
+        // Validamos si el password cambio
+        if ($request->password == $user->password) {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'rol' => $request->input('rolSelect'),
+            ]);
+        } else {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'rol' => $request->input('rolSelect'),
+            ]);
+        }
+
+        // $user->update([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => bcrypt($request->password),
+        //     'rol' => $request->input('rolSelect'),
+        // ]);
 
         // $roleId = $request->input('rolSelect');
         // $role = Role::find($roleId);
