@@ -8,6 +8,8 @@ use Spatie\Permission\Models\Role;
 use App\Mail\CredencialesEmail;
 use Illuminate\Support\Facades\Mail;
 
+use App\Models\Lecturas;
+
 
 
 class UsuarioController extends Controller
@@ -109,9 +111,24 @@ class UsuarioController extends Controller
      */
     public function destroy(string $id)
     {
-        $user = User::find($id);
+        // $user = User::find($id);
+        // $user->delete();
+        // return redirect()->route('usuarios.index');
+
+        
+
+        // Encuentra el usuario
+        $user = User::findOrFail($id);
+        
+        // Elimina todas las lecturas asociadas a este usuario
+        Lecturas::where('usuarioId', $id)->delete();
+        
+        // Ahora puedes eliminar el usuario
         $user->delete();
+        
+        // Redirige a la ruta deseada
         return redirect()->route('usuarios.index');
+
     }
 
     public function generateRandomPassword()
